@@ -1765,34 +1765,53 @@ async function aiReply(userText,hidden){
   const m=document.getElementById('msgs');
   const wait=document.createElement('div');wait.className='fb';wait.textContent='老師思考中…';
   m.appendChild(wait);m.scrollTop=m.scrollHeight;
+  // 串流即時預覽泡泡(文字逐段浮現);完成後移除、改用正式 bubbleTeacher(含發音)
+  let live=null,liveEn=null;
+  const showLive=(t)=>{
+    if(!live){ if(wait.parentNode)wait.remove();
+      live=document.createElement('div');live.className='row t';
+      live.innerHTML=`<div class="mface">${faceHead(state.teacher.id)}</div><div class="bubble"><span class="en"></span></div>`;
+      liveEn=live.querySelector('.en'); m.appendChild(live); }
+    liveEn.textContent=t; m.scrollTop=m.scrollHeight;
+  };
   try{
     let reply;
     if(settings.provider==='gemini'){
-      reply=await callGemini(userText,hidden);
+      try{ reply=await callGeminiStream(userText,hidden,(full)=>showLive(stripZh(full)||full)); }
+      catch(e){ reply=await callGemini(userText,hidden); }   // 串流失敗 → 退回非串流
     }else{
       reply=await callOpenAI(userText);
     }
-    wait.remove();
+    if(live&&live.parentNode)live.remove();
+    if(wait.parentNode)wait.remove();
+    reply=reply||'(老師沒有回應，請再說一次)';
     history.push({role:'assistant',content:reply});
     const zh=(reply.match(/[（(]([^）)]*[一-鿿][^）)]*)[）)]/)||[])[1]||'';
     const en=stripZh(reply)||reply;
     bubbleTeacher(en,zh);
     document.getElementById('prompt').innerHTML='輪到你了 · 用英文回應（卡住可按「想不出來」）';
   }catch(err){
-    wait.remove();
+    if(live&&live.parentNode)live.remove();
+    if(wait.parentNode)wait.remove();
     feedback('連線 AI 失敗：'+escapeHtml(err.message||String(err))+'<br>請到 ⚙️ 設定檢查金鑰／模型，或先改用內建情境練習。',true);
   }
 }
 
-// Gemini 原生端點（瀏覽器可直連，免費）
+// 每輪最多送出的對話歷史則數（太長會拖慢回應;仍保留完整 history 供顯示）
+const HISTORY_SEND=12;
+function geminiContents(userText,hidden){
+  const contents=history.slice(-HISTORY_SEND).map(h=>({role:h.role==='assistant'?'model':'user',parts:[{text:h.content}]}));
+  if(hidden)contents.push({role:'user',parts:[{text:userText}]});
+  return contents;
+}
+
+// Gemini 原生端點（瀏覽器可直連，免費）—— 非串流(退路用)
 async function callGemini(userText,hidden){
   const model=settings.geminiModel||'gemini-2.0-flash';
   const url=`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(settings.geminiKey)}`;
-  const contents=history.map(h=>({role:h.role==='assistant'?'model':'user',parts:[{text:h.content}]}));
-  if(hidden)contents.push({role:'user',parts:[{text:userText}]});
   const body={
     system_instruction:{parts:[{text:sysPrompt()}]},
-    contents,
+    contents:geminiContents(userText,hidden),
     generationConfig:{temperature:0.7,maxOutputTokens:400}
   };
   const res=await fetchRetry(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
@@ -1801,6 +1820,41 @@ async function callGemini(userText,hidden){
   const cand=data.candidates&&data.candidates[0];
   const txt=cand&&cand.content&&cand.content.parts&&cand.content.parts.map(p=>p.text||'').join('').trim();
   return txt||'(老師沒有回應，請再說一次)';
+}
+
+// Gemini 串流端點（SSE）—— 文字逐段浮現,回應「感覺」更快;onDelta(累積全文)
+async function callGeminiStream(userText,hidden,onDelta){
+  const model=settings.geminiModel||'gemini-2.0-flash';
+  const url=`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:streamGenerateContent?alt=sse&key=${encodeURIComponent(settings.geminiKey)}`;
+  const body={
+    system_instruction:{parts:[{text:sysPrompt()}]},
+    contents:geminiContents(userText,hidden),
+    generationConfig:{temperature:0.7,maxOutputTokens:400}
+  };
+  const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  if(!res.ok||!res.body){
+    let msg='HTTP '+res.status;try{const d=await res.json();msg=(d&&d.error&&d.error.message)||msg;}catch(e){}
+    throw new Error(msg);
+  }
+  const reader=res.body.getReader(),dec=new TextDecoder();let buf='',full='';
+  while(true){
+    const {done,value}=await reader.read();
+    if(done)break;
+    buf+=dec.decode(value,{stream:true});
+    let nl;
+    while((nl=buf.indexOf('\n'))>=0){
+      const line=buf.slice(0,nl).trim();buf=buf.slice(nl+1);
+      if(!line.startsWith('data:'))continue;
+      const js=line.slice(5).trim();if(!js||js==='[DONE]')continue;
+      try{
+        const obj=JSON.parse(js);
+        const parts=obj.candidates&&obj.candidates[0]&&obj.candidates[0].content&&obj.candidates[0].content.parts;
+        const t=parts?parts.map(p=>p.text||'').join(''):'';
+        if(t){full+=t;if(onDelta)onDelta(full);}
+      }catch(e){}
+    }
+  }
+  return full.trim();
 }
 
 // OpenAI 相容端點

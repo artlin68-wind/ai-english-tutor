@@ -6,7 +6,7 @@
    - 跨網域請求（Gemini API、Google 字型等）一律不攔截，直接放行。
    改版時只要把 CACHE 版本號 +1，舊快取會自動清除。
 */
-const CACHE = 'ai-eng-tutor-v5';
+const CACHE = 'ai-eng-tutor-v6';
 const SHELL = [
   './',
   './index.html',
