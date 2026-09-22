@@ -1,0 +1,7 @@
+tools/_*.log
+tools/_texts.json
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+*.part

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AI 英語老師">
+<meta name="theme-color" content="#0f1117">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Crect width='180' height='180' rx='40' fill='%236366f1'/%3E%3Ctext x='90' y='120' font-size='90' text-anchor='middle'%3E%F0%9F%97%A3%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<title>AI 英語老師</title>
+<style>
+  :root{
+    --bg:#0f1117; --surface:#171b26; --surface2:#1e2331; --border:#2a3050;
+    --primary:#6366f1; --primary2:#818cf8;
+    --me:#3b82f6; --ai:#22c55e; --warn:#f97316; --text:#e5e7eb; --muted:#9ca3af;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:'Noto Sans TC','Segoe UI',system-ui,sans-serif;
+    display:flex;flex-direction:column;
+    padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);
+    overflow:hidden;position:relative;
+  }
+  /* 生動動態背景 */
+  body::before{
+    content:"";position:fixed;inset:-30%;z-index:-2;
+    background:
+      radial-gradient(40% 40% at 20% 20%,rgba(99,102,241,.35),transparent 60%),
+      radial-gradient(45% 45% at 80% 15%,rgba(236,72,153,.28),transparent 60%),
+      radial-gradient(50% 50% at 75% 85%,rgba(34,197,94,.22),transparent 60%),
+      radial-gradient(45% 45% at 15% 80%,rgba(249,115,22,.22),transparent 60%);
+    filter:blur(10px);animation:floatbg 18s ease-in-out infinite alternate;
+  }
+  body::after{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 50% 40%,transparent,var(--bg) 85%)}
+  @keyframes floatbg{
+    0%{transform:translate(0,0) scale(1)}
+    50%{transform:translate(3%,-2%) scale(1.08)}
+    100%{transform:translate(-3%,2%) scale(1.04)}
+  }
+  .screen{flex:1;display:none;flex-direction:column;overflow:hidden}
+  .screen.active{display:flex}
+  .scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:18px 16px 24px}
+  h1{font-size:22px;font-weight:700;text-align:center;margin-bottom:6px}
+  h2{font-size:18px;font-weight:700;margin:18px 0 10px}
+  .sub{color:var(--muted);font-size:13.5px;text-align:center;margin-bottom:20px;line-height:1.6}
+  .brand{text-align:center;padding:26px 16px 4px}
+  .brand .logo{font-size:46px}
+
+  /* buttons */
+  button{font-family:inherit;cursor:pointer;border:none}
+  .btn{
+    background:var(--primary);color:#fff;border-radius:12px;
+    padding:14px 20px;font-size:16px;font-weight:600;width:100%;
+    transition:transform .1s,filter .15s;
+  }
+  .btn:active{transform:scale(.98)}
+  .btn.secondary{background:var(--surface2);border:1px solid var(--border);color:var(--text)}
+  .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--muted)}
+  .btn:disabled{opacity:.45}
+
+  /* avatar cards */
+  .avatar-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+  .avatar-card{
+    background:var(--surface);border:2px solid var(--border);border-radius:18px;
+    padding:18px 12px;text-align:center;transition:border-color .15s,transform .1s;
+  }
+  .avatar-card:active{transform:scale(.97)}
+  .avatar-card.sel{border-color:var(--primary)}
+  .avatar-card .face{width:90px;height:90px;margin:0 auto 10px}
+  .avatar-card strong{display:block;font-size:16px}
+  .avatar-card small{color:var(--muted);font-size:12px}
+
+  /* scenario list */
+  .scn{
+    display:flex;align-items:center;gap:14px;
+    background:var(--surface);border:1px solid var(--border);border-radius:14px;
+    padding:15px 16px;margin-bottom:11px;transition:transform .1s,border-color .15s;
+  }
+  .scn:active{transform:scale(.98);border-color:var(--primary)}
+  .scn .emoji{font-size:26px;flex:none;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--surface2);border-radius:12px}
+  .scn .info{flex:1;text-align:left}
+  .scn .info strong{display:block;font-size:15.5px}
+  .scn .info small{color:var(--muted);font-size:12.5px}
+  .scn .arrow{color:var(--muted);font-size:18px}
+  .scn.add{border-style:dashed;justify-content:center;color:var(--muted)}
+  .scn.add .info{text-align:center;flex:none}
+
+  /* chat header */
+  .chat-head{
+    display:flex;align-items:center;gap:12px;padding:12px 14px;
+    background:var(--surface);border-bottom:1px solid var(--border);flex:none;
+  }
+  .chat-head .back{font-size:22px;color:var(--muted);background:none;padding:0 4px}
+  .chat-head .face{width:40px;height:40px;flex:none}
+  .chat-head .who{flex:1}
+  .chat-head .who strong{display:block;font-size:15px}
+  .chat-head .who small{color:var(--ai);font-size:11.5px}
+  .chat-head .gear{font-size:20px;background:none;color:var(--muted);padding:4px}
+
+  /* messages */
+  .msgs{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px 14px 6px;display:flex;flex-direction:column;gap:12px}
+  .row{display:flex;gap:9px;max-width:88%}
+  .row.t{align-self:flex-start}
+  .row.u{align-self:flex-end;flex-direction:row-reverse}
+  .row .mface{width:32px;height:32px;flex:none;align-self:flex-end}
+  .bubble{border-radius:16px;padding:10px 13px;font-size:15px;line-height:1.5;position:relative}
+  .row.t .bubble{background:var(--surface2);border-bottom-left-radius:5px}
+  .row.u .bubble{background:var(--me);color:#fff;border-bottom-right-radius:5px}
+  .bubble .en{font-weight:500}
+  .bubble .zh{display:block;color:var(--muted);font-size:12.5px;margin-top:4px}
+  .row.u .bubble .zh{color:rgba(255,255,255,.75)}
+  .bubble .speak{background:none;color:var(--primary2);font-size:12px;margin-top:6px;padding:2px 0;display:inline-flex;align-items:center;gap:4px}
+  .fb{align-self:flex-start;max-width:88%;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:9px 12px;font-size:13px;color:var(--ai);line-height:1.55}
+  .fb.warn{background:rgba(249,115,22,.08);border-color:rgba(249,115,22,.35);color:#fdba74}
+  .fb b{color:#fff}
+  .hintbox{align-self:center;max-width:92%;background:var(--surface);border:1px dashed var(--primary);border-radius:12px;padding:10px 13px;font-size:13px;color:var(--primary2);line-height:1.6}
+  .hintbox b{color:#fff}
+
+  /* input bar */
+  .inputbar{flex:none;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--surface);border-top:1px solid var(--border)}
+  .prompt{font-size:12.5px;color:var(--muted);margin-bottom:8px;text-align:center;line-height:1.5}
+  .prompt b{color:var(--primary2)}
+  .irow{display:flex;gap:8px;align-items:flex-end}
+  .irow textarea{
+    flex:1;background:var(--bg);border:1px solid var(--border);border-radius:14px;
+    color:var(--text);padding:11px 13px;font-size:15px;font-family:inherit;resize:none;
+    max-height:96px;line-height:1.4;
+  }
+  .icon-btn{width:46px;height:46px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:20px;background:var(--surface2);border:1px solid var(--border);color:var(--text)}
+  .icon-btn.mic.rec{background:#ef4444;border-color:#ef4444;color:#fff;animation:pulse 1s infinite}
+  .icon-btn.send{background:var(--primary);border-color:var(--primary);color:#fff}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+  .tools{display:flex;gap:8px;margin-bottom:8px;justify-content:center;flex-wrap:wrap}
+  .chip{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:6px 12px;font-size:12.5px;color:var(--text)}
+
+  /* quiz */
+  .qcard{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:14px}
+  .qcard .q{font-size:16px;font-weight:600;margin-bottom:4px}
+  .qcard .qz{color:var(--muted);font-size:13px;margin-bottom:14px}
+  .opt{display:block;width:100%;text-align:left;background:var(--surface2);border:1px solid var(--border);border-radius:11px;padding:12px 14px;margin-bottom:9px;color:var(--text);font-size:15px;transition:border-color .1s}
+  .opt.correct{border-color:var(--ai);background:rgba(34,197,94,.12)}
+  .opt.wrong{border-color:#ef4444;background:rgba(239,68,68,.12)}
+  .qexp{font-size:13px;color:var(--muted);margin-top:6px;line-height:1.6;display:none}
+  .qexp.show{display:block}
+  .qexp b{color:var(--ai)}
+  .scorebar{text-align:center;color:var(--muted);font-size:13px;margin-bottom:14px}
+
+  /* settings modal */
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+  .modal.open{display:flex}
+  .sheet{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:20px;width:100%;max-width:420px;max-height:86vh;overflow-y:auto}
+  .sheet h3{font-size:17px;margin-bottom:14px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+  .field input,.field select{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:10px;color:var(--text);padding:11px 12px;font-size:15px;font-family:inherit}
+  .note{font-size:12px;color:var(--muted);line-height:1.6;background:var(--surface2);border-radius:10px;padding:11px;margin-bottom:14px}
+  .note b{color:var(--text)}
+  .badge{display:inline-block;font-size:11px;padding:2px 9px;border-radius:20px;background:var(--surface2);border:1px solid var(--border);color:var(--muted);margin-left:8px}
+  .badge.on{color:var(--ai);border-color:var(--ai)}
+</style>
+</head>
+<body>
+
+<!-- ===== Screen: Avatar select ===== -->
+<div class="screen active" id="s-avatar">
+  <div class="scroll">
+    <div class="brand"><div class="logo">🗣️</div></div>
+    <h1>AI 英語老師</h1>
+    <p class="sub">高中程度 · 約 10000 單字範圍<br>選一位老師，開始面對面英語對話練習</p>
+    <div class="avatar-grid" id="avatarGrid"></div>
+    <button class="btn" id="toScenarios" disabled>選好了，下一步</button>
+    <button class="btn ghost" style="margin-top:10px" onclick="openSettings()">⚙️ 設定 / AI 金鑰</button>
+  </div>
+</div>
+
+<!-- ===== Screen: Scenario select ===== -->
+<div class="screen" id="s-scenario">
+  <div class="scroll">
+    <h1 style="margin-top:8px">選擇練習情境</h1>
+    <p class="sub">每個情境都能對話、糾正發音、提醒你想不出的字</p>
+    <div id="scnList"></div>
+    <h2>其他</h2>
+    <div class="scn" onclick="startQuiz()">
+      <div class="emoji">🧠</div>
+      <div class="info"><strong>單字測驗</strong><small>生動選擇題 + 例句，檢查記憶</small></div>
+      <div class="arrow">›</div>
+    </div>
+    <button class="btn secondary" style="margin-top:16px" onclick="show('s-avatar')">← 換老師</button>
+  </div>
+</div>
+
+<!-- ===== Screen: Chat ===== -->
+<div class="screen" id="s-chat">
+  <div class="chat-head">
+    <button class="back" onclick="show('s-scenario')">‹</button>
+    <div class="face" id="chatFace"></div>
+    <div class="who"><strong id="chatName">Teacher</strong><small id="chatScn">● 上線中</small></div>
+    <button class="gear" onclick="openSettings()">⚙️</button>
+  </div>
+  <div class="msgs" id="msgs"></div>
+  <div class="inputbar">
+    <div class="prompt" id="prompt"></div>
+    <div class="tools">
+      <button class="chip" onclick="giveHint()">💡 想不出來（提示）</button>
+      <button class="chip" onclick="repeatLast()">🔁 再說一次</button>
+      <button class="chip" onclick="translateLast()">🇹🇼 中文</button>
+    </div>
+    <div class="irow">
+      <button class="icon-btn mic" id="micBtn" onclick="toggleMic()">🎤</button>
+      <textarea id="userInput" rows="1" placeholder="說出來或打字回答…"></textarea>
+      <button class="icon-btn send" onclick="sendUser()">➤</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Screen: Quiz ===== -->
+<div class="screen" id="s-quiz">
+  <div class="chat-head">
+    <button class="back" onclick="show('s-scenario')">‹</button>
+    <div class="who"><strong>單字測驗</strong><small style="color:var(--muted)">高中約 10000 字</small></div>
+  </div>
+  <div class="scroll" id="quizScroll"></div>
+</div>
+
+<!-- ===== Settings modal ===== -->
+<div class="modal" id="settings">
+  <div class="sheet">
+    <h3>設定 <span class="badge" id="aiBadge">內建腳本</span></h3>
+    <div class="note">
+      <b>對話由誰驅動？</b><br>
+      不填金鑰：使用<b>內建情境腳本</b>，馬上能練，免費。<br>
+      填入金鑰：升級為<b>真 AI 自由對話</b>，老師會即時理解並回應你說的任何內容（需自備 OpenAI 相容 API 金鑰，會依用量計費）。金鑰只存在你這台裝置。
+    </div>
+    <div class="field">
+      <label>OpenAI 相容 API 金鑰（選填）</label>
+      <input type="password" id="apiKey" placeholder="sk-...">
+    </div>
+    <div class="field">
+      <label>API 網址（預設 OpenAI）</label>
+      <input type="text" id="apiBase" placeholder="https://api.openai.com/v1/chat/completions">
+    </div>
+    <div class="field">
+      <label>模型名稱</label>
+      <input type="text" id="apiModel" placeholder="gpt-4o-mini">
+    </div>
+    <div class="field">
+      <label>老師語音</label>
+      <select id="voiceSel"></select>
+    </div>
+    <button class="btn" onclick="saveSettings()">儲存</button>
+    <button class="btn ghost" style="margin-top:10px" onclick="closeSettings()">關閉</button>
+  </div>
+</div>
+
+<script>
+/* ================= 資料 ================= */
+// 老師形象（用 SVG 呈現帥哥 / 美女，可離線）
+function faceSVG(type){
+  if(type==='male'){
+    return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="mb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e293b"/><stop offset="1" stop-color="#0f172a"/></linearGradient></defs>
+      <circle cx="50" cy="50" r="48" fill="url(#mb)"/>
+      <path d="M50 88c16 0 28-8 30-20-4-14-16-22-30-22S24 54 20 68c2 12 14 20 30 20z" fill="#3b82f6"/>
+      <circle cx="50" cy="44" r="20" fill="#f2c9a0"/>
+      <path d="M30 40c0-14 9-22 20-22s20 8 20 22c-3-6-8-9-12-9-2 4-11 6-18 3-3 2-6 3-10 6z" fill="#2b2320"/>
+      <circle cx="43" cy="44" r="2.6" fill="#1b1b1b"/><circle cx="57" cy="44" r="2.6" fill="#1b1b1b"/>
+      <path d="M44 54c3 3 9 3 12 0" stroke="#b5745a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    </svg>`;
+  }
+  return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="fb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b213a"/><stop offset="1" stop-color="#1f0f22"/></linearGradient></defs>
+    <circle cx="50" cy="50" r="48" fill="url(#fb)"/>
+    <path d="M50 88c16 0 28-8 30-20-4-14-16-22-30-22S24 54 20 68c2 12 14 20 30 20z" fill="#ec4899"/>
+    <path d="M28 46c-2 16 4 30 6 34-8-4-14-14-14-28 0-18 14-32 30-32s30 12 30 30c0 16-6 26-14 30 2-6 8-18 6-34-4 8-14 12-22 12s-18-4-22-12z" fill="#6b3a1e"/>
+    <circle cx="50" cy="46" r="19" fill="#f7d3b5"/>
+    <circle cx="43" cy="46" r="2.6" fill="#1b1b1b"/><circle cx="57" cy="46" r="2.6" fill="#1b1b1b"/>
+    <path d="M45 55c3 2.6 7 2.6 10 0" stroke="#c2607a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <circle cx="38" cy="52" r="3" fill="#f9a8c6" opacity=".55"/><circle cx="62" cy="52" r="3" fill="#f9a8c6" opacity=".55"/>
+  </svg>`;
+}
+const TEACHERS=[
+  {id:'male',name:'Ryan 老師',desc:'帥氣、沉穩，語速稍慢',voiceHint:['male','daniel','alex','fred','aaron','arthur','google uk english male']},
+  {id:'female',name:'Emma 老師',desc:'親切、活潑，鼓勵式教學',voiceHint:['female','samantha','victoria','karen','moira','google uk english female','zira']}
+];
+
+// 情境腳本：每回合老師先說，並提示學生用什麼句子回應
+const SCENARIOS={
+  daily:{name:'生活應用',icon:'🏠',desc:'日常問候、自我介紹、閒聊',
+    turns:[
+      {t:"Hi! Nice to meet you. How are you doing today?",zh:"嗨！很高興認識你，今天過得如何？",expect:["i'm fine","i am good","pretty good","not bad","i'm great"],hints:["I'm doing great, thanks!","Pretty good. How about you?"]},
+      {t:"Great to hear! Can you tell me a little about yourself?",zh:"太好了！可以簡單介紹一下自己嗎？",expect:["my name is","i am a student","i'm a high school","i live in"],hints:["My name is ___ and I'm a high school student.","I live in Taiwan and I love ___."]},
+      {t:"Nice! What do you usually do after school?",zh:"不錯！你放學後通常都做些什麼？",expect:["i play","i study","i watch","i read","i go"],hints:["After school I usually play basketball.","I often study English and watch videos."]},
+      {t:"That sounds fun. What is your favorite subject at school?",zh:"聽起來很有趣。你最喜歡的科目是什麼？",expect:["my favorite","i like","i enjoy","english","math","science"],hints:["My favorite subject is English.","I really enjoy science class."]}
+    ]},
+  travel:{name:'旅遊應用',icon:'✈️',desc:'問路、機場、飯店入住',
+    turns:[
+      {t:"Welcome! Are you here for business or for travel?",zh:"歡迎！你是來出差還是旅遊？",expect:["travel","for travel","tourism","vacation","holiday"],hints:["I'm here for travel.","I'm on vacation with my family."]},
+      {t:"Wonderful. How can I help you today?",zh:"太好了，今天需要什麼協助？",expect:["i want to check in","directions","how do i get","where is","i need"],hints:["I'd like to check in, please.","Could you tell me how to get to the museum?"]},
+      {t:"Sure. May I see your passport and booking, please?",zh:"沒問題，可以出示你的護照和訂房資料嗎？",expect:["here you are","here it is","sure","of course"],hints:["Here you are.","Sure, here is my passport."]},
+      {t:"Thank you. Your room is on the fifth floor. Enjoy your stay!",zh:"謝謝，你的房間在五樓，祝你住得愉快！",expect:["thank you","thanks","great","appreciate"],hints:["Thank you so much!","Great, thanks for your help."]}
+    ]},
+  shopping:{name:'買東西應用',icon:'🛍️',desc:'購物、詢價、殺價、結帳',
+    turns:[
+      {t:"Hi there! Are you looking for anything in particular?",zh:"嗨！有沒有在找什麼特別的東西？",expect:["i'm looking for","i want","do you have","i need"],hints:["I'm looking for a pair of shoes.","Do you have this in blue?"]},
+      {t:"Sure, we have several styles. What size do you wear?",zh:"當然，我們有好幾種款式，你穿幾號？",expect:["size","i wear","medium","large","small","number"],hints:["I wear size nine.","Medium, please."]},
+      {t:"Here you go. This one is on sale today.",zh:"這是你要的，這款今天特價。",expect:["how much","the price","cost","can i try"],hints:["How much is it?","Can I try it on?"]},
+      {t:"It's twenty dollars. Would you like to pay by cash or card?",zh:"20 美元。你要付現還是刷卡？",expect:["cash","card","credit","by card","i'll pay"],hints:["I'll pay by card.","Cash, please."]}
+    ]},
+  letter:{name:'書信往來',icon:'✉️',desc:'Email 開頭、請求、結尾用語',
+    turns:[
+      {t:"Let's practice writing an email. How would you greet a teacher politely?",zh:"我們來練習寫 Email。你會怎麼禮貌地跟老師打招呼？",expect:["dear","hello","hi","good morning","dear teacher"],hints:["Dear Mr. Lin,","Dear Ms. Wang, I hope you are well."]},
+      {t:"Good. Now, how would you ask for a deadline extension?",zh:"很好。那你會怎麼請求延長繳交期限？",expect:["could i","may i","i would like","extension","more time","ask for"],hints:["Could I please have a few more days?","I would like to ask for an extension."]},
+      {t:"Nice phrasing. How would you thank them at the end?",zh:"用得不錯。結尾你會怎麼道謝？",expect:["thank you","thanks","i appreciate","grateful"],hints:["Thank you for your understanding.","I really appreciate your help."]},
+      {t:"Perfect. And how do you close a formal email?",zh:"很好。正式 Email 的結尾敬語怎麼寫？",expect:["best regards","sincerely","yours","regards","best"],hints:["Best regards, Art","Sincerely yours, Art"]}
+    ]},
+  restaurant:{name:'點餐應用',icon:'🍽️',desc:'餐廳訂位、點餐、結帳',
+    turns:[
+      {t:"Good evening! Welcome. A table for how many?",zh:"晚安，歡迎光臨！請問幾位？",expect:["for two","for three","a table for","just me","people"],hints:["A table for two, please.","Just me, thanks."]},
+      {t:"Right this way. Here's the menu. Are you ready to order?",zh:"這邊請，這是菜單，準備好點餐了嗎？",expect:["i'll have","i would like","can i get","i want","give me"],hints:["I'll have the steak, please.","Can I get a burger and a coke?"]},
+      {t:"Great choice. Anything to drink?",zh:"好選擇！要喝點什麼嗎？",expect:["water","coke","juice","tea","coffee","i'll have"],hints:["Just water, please.","I'll have an orange juice."]},
+      {t:"Coming right up. Would you like the bill now?",zh:"馬上來。需要現在結帳嗎？",expect:["the bill","check please","how much","yes please","not yet"],hints:["Yes, the bill please.","Could I have the check?"]}
+    ]}
+};
+
+// 測驗題庫（高中常見字）
+const QUIZ=[
+  {q:"She was very ___ about the exam results.",zh:"她對考試結果非常焦慮。",opts:["anxious","ancient","annual","angel"],a:0,exp:"anxious 焦慮的。例：I feel anxious before a test."},
+  {q:"The scientist made an important ___.",zh:"這位科學家有重要的發現。",opts:["decoration","discovery","description","distance"],a:1,exp:"discovery 發現。動詞為 discover。"},
+  {q:"We need to ___ energy to protect the planet.",zh:"我們需要節約能源保護地球。",opts:["conserve","conceal","confirm","consume"],a:0,exp:"conserve 節約、保育。consume 則是消耗。"},
+  {q:"His speech was quite ___ and moved everyone.",zh:"他的演講很有感染力，感動了大家。",opts:["boring","inspiring","missing","normal"],a:1,exp:"inspiring 激勵人心的。動詞 inspire。"},
+  {q:"Please ___ your answers before you hand in the test.",zh:"交卷前請檢查你的答案。",opts:["review","refuse","remove","reply"],a:0,exp:"review 檢查、複習。"},
+  {q:"The two countries finally reached an ___.",zh:"兩國最終達成協議。",opts:["argument","agreement","amount","author"],a:1,exp:"agreement 協議。reach an agreement 達成協議。"},
+  {q:"A balanced diet is ___ for good health.",zh:"均衡飲食對健康很重要。",opts:["essential","optional","curious","distant"],a:0,exp:"essential 必要的、不可或缺的。"},
+  {q:"He tried to ___ the meaning of the poem.",zh:"他試著解釋這首詩的意思。",opts:["increase","interpret","interrupt","invent"],a:1,exp:"interpret 解釋、詮釋。"}
+];
+
+/* ================= 狀態 ================= */
+let state={teacher:null,scenario:null,turn:0,voices:[],voice:null};
+let settings={apiKey:'',apiBase:'https://api.openai.com/v1/chat/completions',apiModel:'gpt-4o-mini',voiceName:''};
+let history=[]; // 真AI模式對話歷史
+
+function save(){try{localStorage.setItem('aiTeacher',JSON.stringify(settings))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem('aiTeacher'));if(s)settings=Object.assign(settings,s)}catch(e){}}
+
+/* ================= 畫面切換 ================= */
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active')}
+
+/* ================= 老師選擇 ================= */
+function renderTeachers(){
+  const g=document.getElementById('avatarGrid');g.innerHTML='';
+  TEACHERS.forEach(t=>{
+    const d=document.createElement('div');d.className='avatar-card';d.dataset.id=t.id;
+    d.innerHTML=`<div class="face">${faceSVG(t.id)}</div><strong>${t.name}</strong><small>${t.desc}</small>`;
+    d.onclick=()=>{state.teacher=t;document.querySelectorAll('.avatar-card').forEach(c=>c.classList.remove('sel'));d.classList.add('sel');document.getElementById('toScenarios').disabled=false;pickVoice()};
+    g.appendChild(d);
+  });
+}
+document.getElementById('toScenarios').onclick=()=>{renderScenarios();show('s-scenario')};
+
+/* ================= 情境選擇 ================= */
+function renderScenarios(){
+  const l=document.getElementById('scnList');l.innerHTML='';
+  Object.entries(SCENARIOS).forEach(([k,s])=>{
+    const d=document.createElement('div');d.className='scn';
+    d.innerHTML=`<div class="emoji">${s.icon}</div><div class="info"><strong>${s.name}</strong><small>${s.desc}</small></div><div class="arrow">›</div>`;
+    d.onclick=()=>startChat(k);l.appendChild(d);
+  });
+  const add=document.createElement('div');add.className='scn add';
+  add.innerHTML=`<div class="info">＋ 更多情境（未來擴充：面試、看醫生、電話…）</div>`;
+  add.onclick=()=>alert('架構已預留，之後可直接在 SCENARIOS 內新增情境，或用真 AI 金鑰自由對話任何主題。');
+  l.appendChild(add);
+}
+
+/* ================= 語音 ================= */
+function loadVoices(){
+  state.voices=(window.speechSynthesis?speechSynthesis.getVoices():[]).filter(v=>/en(-|_)/i.test(v.lang)||/english/i.test(v.name));
+  const sel=document.getElementById('voiceSel');if(sel){sel.innerHTML='';
+    const auto=document.createElement('option');auto.value='';auto.textContent='自動（依老師性別）';sel.appendChild(auto);
+    state.voices.forEach(v=>{const o=document.createElement('option');o.value=v.name;o.textContent=v.name+' ('+v.lang+')';sel.appendChild(o)});
+    if(settings.voiceName)sel.value=settings.voiceName;
+  }
+  pickVoice();
+}
+function pickVoice(){
+  if(!state.voices.length)return;
+  if(settings.voiceName){const v=state.voices.find(v=>v.name===settings.voiceName);if(v){state.voice=v;return}}
+  if(state.teacher){
+    for(const hint of state.teacher.voiceHint){const v=state.voices.find(v=>v.name.toLowerCase().includes(hint));if(v){state.voice=v;return}}
+  }
+  state.voice=state.voices[0];
+}
+if(window.speechSynthesis){speechSynthesis.onvoiceschanged=loadVoices}
+function speak(text){
+  if(!window.speechSynthesis)return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  if(state.voice)u.voice=state.voice;
+  u.lang=(state.voice&&state.voice.lang)||'en-US';u.rate=.92;u.pitch=1;
+  speechSynthesis.speak(u);
+}
+
+/* ================= 對話 ================= */
+function startChat(key){
+  state.scenario=key;state.turn=0;history=[];
+  document.getElementById('chatFace').innerHTML=faceSVG(state.teacher.id);
+  document.getElementById('chatName').textContent=state.teacher.name;
+  document.getElementById('chatScn').textContent='● '+SCENARIOS[key].name+(settings.apiKey?' · 真 AI':' · 情境練習');
+  document.getElementById('msgs').innerHTML='';
+  show('s-chat');
+  if(settings.apiKey){aiOpen();}else{nextTurn(true);}
+}
+function bubbleTeacher(en,zh){
+  const m=document.getElementById('msgs');
+  const r=document.createElement('div');r.className='row t';
+  r.innerHTML=`<div class="mface">${faceSVG(state.teacher.id)}</div><div class="bubble"><span class="en">${en}</span>${zh?`<span class="zh">${zh}</span>`:''}<button class="speak" onclick="speak(${JSON.stringify(en).replace(/"/g,'&quot;')})">🔊 播放</button></div>`;
+  m.appendChild(r);m.scrollTop=m.scrollHeight;speak(en);
+}
+function bubbleUser(txt){
+  const m=document.getElementById('msgs');
+  const r=document.createElement('div');r.className='row u';
+  r.innerHTML=`<div class="bubble"><span class="en">${txt}</span></div>`;
+  m.appendChild(r);m.scrollTop=m.scrollHeight;
+}
+function feedback(html,warn){
+  const m=document.getElementById('msgs');
+  const d=document.createElement('div');d.className='fb'+(warn?' warn':'');d.innerHTML=html;
+  m.appendChild(d);m.scrollTop=m.scrollHeight;
+}
+function nextTurn(first){
+  const sc=SCENARIOS[state.scenario];
+  if(state.turn>=sc.turns.length){
+    bubbleTeacher("Great job! You finished this scenario. Let's practice again or try another one. 👏","太棒了，你完成這個情境了！可以再練一次或換一個。");
+    document.getElementById('prompt').innerHTML='本情境完成 ✅ 你可以繼續說，或按左上角返回換情境';
+    return;
+  }
+  const turn=sc.turns[state.turn];
+  bubbleTeacher(turn.t,turn.zh);
+  document.getElementById('prompt').innerHTML=`輪到你回應了 · 試著說：<b>${turn.hints[0]}</b>`;
+}
+function similar(a,b){
+  a=a.toLowerCase().replace(/[^a-z ]/g,'').trim();b=b.toLowerCase().replace(/[^a-z ]/g,'').trim();
+  const wa=a.split(/\s+/),wb=b.split(/\s+/);let hit=0;
+  wb.forEach(w=>{if(wa.includes(w))hit++});
+  return wb.length?hit/wb.length:0;
+}
+function sendUser(){
+  const ta=document.getElementById('userInput');const txt=ta.value.trim();if(!txt)return;
+  ta.value='';bubbleUser(txt);
+  if(settings.apiKey){aiReply(txt);return;}
+  // 內建腳本評分
+  const turn=SCENARIOS[state.scenario].turns[state.turn];
+  const matchExpect=turn.expect.some(e=>txt.toLowerCase().includes(e));
+  const best=Math.max(...turn.hints.map(h=>similar(txt,h)),matchExpect?1:0);
+  const words=txt.split(/\s+/).length;
+  if(words<=2 && !matchExpect){
+    feedback(`看起來你有點想不出怎麼說？💡 可以試試：<br><b>${turn.hints[0]}</b><br>或按下方「想不出來」看更多提示。`,true);
+    return;
+  }
+  if(matchExpect||best>=0.5){
+    feedback(`👍 <b>很好！</b>你的回應很自然。也可以這樣說：<br>「${turn.hints[Math.min(1,turn.hints.length-1)]}」`);
+  }else{
+    feedback(`不錯的嘗試！這個情境更常見的說法是：<br><b>${turn.hints[0]}</b><br>再讀一次感受語氣～`,true);
+  }
+  state.turn++;
+  setTimeout(()=>nextTurn(),700);
+}
+
+/* 提示 / 再說一次 / 中文 */
+function giveHint(){
+  if(settings.apiKey){feedback('💡 卡住了嗎？可以直接用中文夾雜英文說，老師會幫你把整句講對。');return;}
+  const turn=SCENARIOS[state.scenario].turns[state.turn];
+  if(!turn){return;}
+  const m=document.getElementById('msgs');const d=document.createElement('div');d.className='hintbox';
+  d.innerHTML=`💡 <b>窮詞提醒</b> — 你可以這樣說：<br>• ${turn.hints.join('<br>• ')}`;
+  m.appendChild(d);m.scrollTop=m.scrollHeight;
+}
+function repeatLast(){
+  const sc=SCENARIOS[state.scenario];const turn=sc.turns[Math.min(state.turn,sc.turns.length-1)];
+  if(turn)speak(turn.t);
+}
+function translateLast(){
+  const sc=SCENARIOS[state.scenario];const turn=sc.turns[Math.min(state.turn,sc.turns.length-1)];
+  if(turn)feedback('🇹🇼 中文：'+turn.zh);
+}
+
+/* ================= 發音辨識 ================= */
+let recog=null,recActive=false;
+function initRecog(){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR)return null;
+  const r=new SR();r.lang='en-US';r.interimResults=false;r.maxAlternatives=1;
+  r.onresult=e=>{
+    const said=e.results[0][0].transcript;const conf=e.results[0][0].confidence||0;
+    document.getElementById('userInput').value=said;
+    // 發音評估：跟目前該回合建議句比對
+    const sc=SCENARIOS[state.scenario];const turn=sc&&sc.turns[state.turn];
+    if(turn && !settings.apiKey){
+      const score=Math.round(Math.max(...turn.hints.map(h=>similar(said,h)))*100);
+      const level=score>=70?'👏 發音清楚！':score>=40?'🙂 大致聽懂，再放慢一點':'🔁 再試一次，注意每個音節';
+      feedback(`🎤 我聽到：「<b>${said}</b>」<br>發音吻合度約 <b>${score}%</b> — ${level}`);
+    }
+  };
+  r.onerror=()=>{stopMic()};
+  r.onend=()=>{stopMic()};
+  return r;
+}
+function toggleMic(){recActive?stopMic():startMic()}
+function startMic(){
+  if(!recog)recog=initRecog();
+  if(!recog){feedback('這台裝置或瀏覽器不支援語音辨識（iPhone Safari 支援較有限）。你可以直接打字，我一樣會給發音與用法建議。',true);return;}
+  try{recog.start();recActive=true;document.getElementById('micBtn').classList.add('rec')}catch(e){}
+}
+function stopMic(){recActive=false;document.getElementById('micBtn').classList.remove('rec')}
+
+/* ================= 真 AI 模式 ================= */
+function sysPrompt(){
+  const g=state.teacher.id==='male'?'a friendly male English teacher named Ryan':'a warm female English teacher named Emma';
+  const scn=SCENARIOS[state.scenario];
+  return `You are ${g} for a Taiwanese high-school student (vocabulary ~10000 words, roughly CEFR B1). Current role-play scenario: "${scn.name}" (${scn.desc}). Speak mostly in simple English. Keep replies to 1-3 short sentences and always end by asking a question to keep the conversation going. If the student makes a grammar or word-choice mistake, gently correct it in one short line prefixed with "✏️". If the student seems stuck or writes very little, offer a useful phrase they could say, prefixed with "💡". After your English, add a short Traditional Chinese translation in parentheses.`;
+}
+function aiOpen(){history=[{role:'system',content:sysPrompt()}];aiReply('(Please greet me and start the scenario.)',true)}
+async function aiReply(userText,hidden){
+  if(!hidden)history.push({role:'user',content:userText});
+  const m=document.getElementById('msgs');const wait=document.createElement('div');wait.className='fb';wait.textContent='老師思考中…';m.appendChild(wait);m.scrollTop=m.scrollHeight;
+  try{
+    const res=await fetch(settings.apiBase,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+settings.apiKey},
+      body:JSON.stringify({model:settings.apiModel,messages:history.length?history:[{role:'system',content:sysPrompt()},{role:'user',content:userText}],temperature:0.7})});
+    const data=await res.json();wait.remove();
+    const reply=data.choices&&data.choices[0]&&data.choices[0].message.content||'(no reply)';
+    history.push({role:'assistant',content:reply});
+    // 拆出英文與中文
+    const zh=(reply.match(/[（(]([^）)]*[一-鿿][^）)]*)[）)]/)||[])[1]||'';
+    const en=reply.replace(/[（(][^）)]*[）)]/g,'').trim();
+    bubbleTeacher(en,zh);
+    document.getElementById('prompt').innerHTML='輪到你了 · 用英文回應（卡住可按「想不出來」）';
+  }catch(e){wait.remove();feedback('連線 AI 失敗，請檢查金鑰或網址。已可改用內建情境練習。',true)}
+}
+
+/* ================= 測驗 ================= */
+function startQuiz(){
+  show('s-quiz');const box=document.getElementById('quizScroll');
+  let score={n:0,ok:0};
+  box.innerHTML='<div class="scorebar" id="scoreBar">作答中… 選出正確的字，看例句學用法</div>';
+  QUIZ.forEach((item,i)=>{
+    const c=document.createElement('div');c.className='qcard';
+    c.innerHTML=`<div class="q">${i+1}. ${item.q}</div><div class="qz">${item.zh}</div>`;
+    item.opts.forEach((o,oi)=>{
+      const b=document.createElement('button');b.className='opt';b.textContent=o;
+      b.onclick=()=>{
+        if(c.dataset.done)return;c.dataset.done=1;score.n++;
+        if(oi===item.a){b.classList.add('correct');score.ok++}
+        else{b.classList.add('wrong');c.querySelectorAll('.opt')[item.a].classList.add('correct')}
+        c.querySelector('.qexp').classList.add('show');
+        document.getElementById('scoreBar').textContent=`目前 ${score.ok} / ${score.n} 答對`;
+      };
+      c.appendChild(b);
+    });
+    const e=document.createElement('div');e.className='qexp';e.innerHTML='<b>解析：</b>'+item.exp;c.appendChild(e);
+    box.appendChild(c);
+  });
+  const back=document.createElement('button');back.className='btn secondary';back.textContent='← 回情境選單';back.onclick=()=>show('s-scenario');box.appendChild(back);
+}
+
+/* ================= 設定 ================= */
+function openSettings(){document.getElementById('apiKey').value=settings.apiKey;document.getElementById('apiBase').value=settings.apiBase;document.getElementById('apiModel').value=settings.apiModel;loadVoices();updateBadge();document.getElementById('settings').classList.add('open')}
+function closeSettings(){document.getElementById('settings').classList.remove('open')}
+function saveSettings(){
+  settings.apiKey=document.getElementById('apiKey').value.trim();
+  settings.apiBase=document.getElementById('apiBase').value.trim()||'https://api.openai.com/v1/chat/completions';
+  settings.apiModel=document.getElementById('apiModel').value.trim()||'gpt-4o-mini';
+  settings.voiceName=document.getElementById('voiceSel').value;
+  save();pickVoice();updateBadge();closeSettings();
+}
+function updateBadge(){const b=document.getElementById('aiBadge');if(settings.apiKey){b.textContent='真 AI 已啟用';b.classList.add('on')}else{b.textContent='內建腳本';b.classList.remove('on')}}
+
+/* 讓輸入框自動長高 */
+document.getElementById('userInput').addEventListener('input',function(){this.style.height='auto';this.style.height=Math.min(this.scrollHeight,96)+'px'});
+
+/* ================= 啟動 ================= */
+load();renderTeachers();loadVoices();updateBadge();
+</script>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高中生背單字 APP - 開發流程圖</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f1117; --surface:#171b26; --border:#2a3050;
+    --me-fill:#1a3a5c; --me-border:#3b82f6; --me-text:#93c5fd;
+    --ai-fill:#1a3a2a; --ai-border:#22c55e; --ai-text:#86efac;
+    --ph-fill:#2d1f0e; --ph-border:#f97316; --ph-text:#fdba74;
+    --arrow:#6366f1;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg);
+    color:#e5e7eb;
+    font-family:'Noto Sans TC','Inter',sans-serif;
+    line-height:1.6;
+    padding:32px 16px 64px;
+  }
+  .wrap{max-width:920px;margin:0 auto}
+  header{text-align:center;margin-bottom:28px}
+  .eyebrow{
+    display:inline-block;font-size:12px;letter-spacing:2px;
+    color:var(--ph-text);background:var(--ph-fill);
+    border:1px solid var(--ph-border);border-radius:20px;
+    padding:4px 14px;margin-bottom:14px;text-transform:uppercase;
+  }
+  h1{font-size:28px;font-weight:700;margin-bottom:10px}
+  header p{color:#9ca3af;font-size:15px;max-width:640px;margin:0 auto}
+  .legend{
+    display:flex;flex-wrap:wrap;gap:16px;justify-content:center;
+    margin:24px 0 32px;font-size:13px;color:#cbd5e1;
+  }
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .swatch{width:16px;height:16px;border-radius:4px;display:inline-block}
+  .sw-me{background:var(--me-fill);border:1px solid var(--me-border)}
+  .sw-ai{background:var(--ai-fill);border:1px dashed var(--ai-border)}
+  .sw-ph{background:var(--ph-fill);border:1px solid var(--ph-border)}
+
+  .flow{display:flex;flex-direction:column;align-items:stretch}
+  .phase-block{
+    background:var(--surface);border:1px solid var(--border);
+    border-radius:16px;overflow:hidden;
+  }
+  .phase-header{
+    display:flex;align-items:center;gap:14px;
+    padding:16px 20px;cursor:pointer;user-select:none;
+    background:linear-gradient(90deg,var(--ph-fill),transparent);
+    border-left:4px solid var(--ph-border);
+    transition:transform .15s,box-shadow .15s;
+  }
+  .phase-header:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.35)}
+  .phase-num{
+    flex:none;width:34px;height:34px;border-radius:50%;
+    background:var(--ph-fill);border:1px solid var(--ph-border);
+    color:var(--ph-text);font-weight:700;
+    display:flex;align-items:center;justify-content:center;font-size:15px;
+  }
+  .phase-title{flex:1}
+  .phase-title strong{display:block;font-size:17px;color:#fff}
+  .phase-title small{color:#9ca3af;font-size:12.5px}
+  .phase-chevron{transition:transform .25s;color:var(--ph-text);font-size:14px}
+  .phase-block.open .phase-chevron{transform:rotate(180deg)}
+
+  .tasks-panel{display:none;padding:18px 20px 22px}
+  .phase-block.open .tasks-panel{display:block}
+  .tasks-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .task-card{
+    background:var(--me-fill);border:1px solid var(--me-border);
+    border-radius:12px;padding:13px 15px;
+  }
+  .task-card.full{grid-column:1 / -1}
+  .task-card .t-head{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+  .task-card .t-emoji{font-size:16px}
+  .task-card strong{color:var(--me-text);font-size:14.5px}
+  .task-card p{color:#cbd5e1;font-size:13px}
+
+  .dash-connector{
+    display:flex;align-items:center;gap:10px;
+    margin:16px 0 12px;color:var(--ai-text);font-size:12.5px;
+  }
+  .dash-connector::before,.dash-connector::after{
+    content:"";flex:1;border-top:1.5px dashed var(--ai-border);opacity:.6;
+  }
+  .ai-output{
+    background:var(--ai-fill);border:1px dashed var(--ai-border);
+    border-radius:12px;padding:14px 16px;
+  }
+  .ai-output .a-head{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+  .ai-output strong{color:var(--ai-text);font-size:14.5px}
+  .ai-chips{display:flex;flex-wrap:wrap;gap:8px}
+  .ai-chip{
+    background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);
+    border-radius:20px;padding:3px 11px;font-size:11.5px;color:var(--ai-text);
+  }
+  .connector{display:flex;justify-content:center;padding:6px 0}
+  .connector-line{
+    width:3px;height:34px;border-radius:3px;
+    background:linear-gradient(to bottom,var(--arrow),rgba(99,102,241,.25));
+    position:relative;
+  }
+  .connector-line::after{
+    content:"";position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);
+    border-left:6px solid transparent;border-right:6px solid transparent;
+    border-top:8px solid rgba(99,102,241,.6);
+  }
+  footer{text-align:center;color:#6b7280;font-size:12.5px;margin-top:36px}
+  .controls{text-align:center;margin-bottom:20px}
+  .controls button{
+    background:var(--surface);border:1px solid var(--border);color:#cbd5e1;
+    border-radius:8px;padding:7px 16px;font-size:13px;cursor:pointer;margin:0 5px;
+    font-family:inherit;
+  }
+  .controls button:hover{border-color:var(--arrow);color:#fff}
+  @media (max-width:600px){.tasks-grid{grid-template-columns:1fr}h1{font-size:23px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">APP 開發流程</span>
+    <h1>台灣高中生背單字 APP · 開發流程圖</h1>
+    <p>以個人／小團隊自行開發為前提，從需求到上架與升級，共 6 個階段。點擊各階段標題可展開或收合細節。</p>
+  </header>
+
+  <div class="legend">
+    <span><i class="swatch sw-ph"></i>階段節點</span>
+    <span><i class="swatch sw-me"></i>工程師／人工任務</span>
+    <span><i class="swatch sw-ai"></i>AI 協作產出</span>
+  </div>
+
+  <div class="controls">
+    <button onclick="toggleAll(true)">全部展開</button>
+    <button onclick="toggleAll(false)">全部收合</button>
+  </div>
+
+  <div class="flow">
+
+    <!-- Phase 1 -->
+    <div class="phase-block open" id="p1">
+      <div class="phase-header" onclick="toggle('p1')">
+        <div class="phase-num">1</div>
+        <div class="phase-title"><strong>需求定義與競品研究</strong><small>釐清目標、對標 TOKO AI / ELSA AI</small></div>
+        <div class="phase-chevron">▼</div>
+      </div>
+      <div class="tasks-panel">
+        <div class="tasks-grid">
+          <div class="task-card">
+            <div class="t-head"><span class="t-emoji">📊</span><strong>競品分析</strong></div>
+            <p>拆解 TOKO AI、ELSA AI 的介面互動、遊戲化與發音評測機制，找出可借鏡與差異化重點。</p>
+          </div>
+          <div class="task-card">
+            <div class="t-head"><span class="t-emoji">🎯</span><strong>需求盤點</strong></div>
+            <p>鎖定學測導向：10000 單字規模、音標、圖片記憶、發音、每日進度、模擬情境等核心需求。</p>
+          </div>
+          <div class="task-card full">
+            <div class="t-head"><span class="t-emoji">📋</span><strong>學習目標與族群定義</strong></div>
+            <p>設定使用對象（高中生）、學習分級（學測 7000 字為核心 → 擴充至 10000 字）與留存目標。</p>
+          </div>
+        </div>
+        <div class="dash-connector">交由 AI 協助整理</div>
+        <div class="ai-output">
+          <div class="a-head"><span class="t-emoji">🤖</span><strong>AI 產出</strong></div>
+          <div class="ai-chips">
+            <span class="ai-chip">產品需求文件 PRD</span>
+            <span class="ai-chip">功能優先級清單</span>
+            <span class="ai-chip">競品對比表</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="connector"><div class="connector-line"></div></div>
+
+    <!-- Phase 2 -->
+    <div class="phase-block open" id="p2">
+      <div class="phase-header" onclick="toggle('p2')">
+        <div class="phase-num">2</div>
+        <div class="phase-title"><strong>單字內容與素材準備</strong><small>單字庫、音標、發音、圖片、情境腳本</small></div>
+        <div class="phase-chevron">▼</div>
+      </div>
+      <div class="tasks-panel">
+        <div class="tasks-grid">
+          <div class="task-card">
+            <div class="t-head"><span class="t-emoji">📋</span><strong>單字庫建置</strong></div>
+            <p>整理 10000 單字並分級（學測必備、進階、延伸），標註詞性、例句與學測出現頻率。</p>
+          </div>
+          <div class="task-card">
+            <div class="t-head"><span class="t-emoji">🔊</span><strong>音標與發音資料</strong></div>
+            <p>建立 KK / 自然發音音標，預先產生離線 TTS 音檔，避免依賴即時 API。</p>
+          </div>
+          <div class="task-card">
+            <div class="t-head"><span class="t-emoji">🖼️</span><strong>圖片記憶素材</strong></div>
+            <p>為單字配置圖像聯想素材，強化視覺記憶，統一授權與圖片規格。</p>
+          </div>
+          <div class="task-card">
+            <div class="t-head"><span class="t-emoji">🎭</span><strong>模擬情境腳本</strong></div>
+            <p>設計生活／考試情境對話，讓單字結合真實場合呈現。可參考 Google 翻譯、劍橋辭典釋義。</p>
+          </div>
+        </div>
+        <div class="dash-connector">交由 AI 協助產出</div>
+        <div class="ai-output">
+          <div class="a-head"><span class="t-emoji">🤖</span><strong>AI 產出</strong></div>
+          <div class="ai-chips">
+            <span class="ai-chip">單字資料庫 Schema</span>
+            <span class="ai-chip">例句 / 情境對話草稿</span>
+            <span class="ai-chip">音標對照表</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="connector"><div class="connector-line"></div></div>
+
+    <!-- Phase 3 -->
+    <div class="phase-block open" id="p3">
+      <div class="phase-header" onclick="toggle('p3')">
+        <div class="phase-num">3</div>
+        <div class="phase-title"><strong>UI/UX 設計</strong><small>生動介面、遊戲化、每日學習路徑</small></div>
+        <div class="phase-chevron">▼</div>
+      </div>
+      <div class="tasks-panel">
+        <div class="tasks-grid">
+          <div class="task-card">
+            <div class="t-head"><span class="t-emoji">🖥️</span><strong>介面視覺設計</strong></div>
+            <p>打造生動、動畫感的介面，加入獎勵、連續打卡等遊戲化元素，讓高中生想持續使用。</p>
+          </div>
+          <div class="task-card">
+            <div class="t-head"><span class="t-emoji">🗓️</span><strong>每日進度與學習路徑</strong></div>
+            <p>設計每日單字量、間隔複習（SRS）與進度可視化，讓學習節奏清楚。</p>
+          </div>
+          <div class="task-card full">
+            <div class="t-head"><span class="t-emoji">🎯</span><strong>互動流程設計</strong></div>
+            <p>規劃單字卡、發音跟讀、圖片配對、情境測驗等互動頁面的操作動線。</p>
+          </div>
+        </div>
+        <div class="dash-connector">交由 AI 協助產出</div>
+        <div class="ai-output">
+          <div class="a-head"><span class="t-emoji">🤖</span><strong>AI 產出</strong></div>
+          <div class="ai-chips">
+            <span class="ai-chip">Wireframe / 原型</span>
+            <span class="ai-chip">介面配色與元件規範</span>
+            <span class="ai-chip">使用者流程圖</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="connector"><div class="connector-line"></div></div>
+
+    <!-- Phase 4 -->
+    <div class="phase-block open" id="p4">
+      <div class="phase-header" onclick="toggle('p4')">
+        <div class="phase-num">4</div>
+        <div class="phase-title"><strong>技術選型與開發實作</strong><small>跨平台打包、離線化、API 整合</small></div>
+        <div class="phase-chevron">▼</div>
+      </div>
+      <div class="tasks-panel">
+        <div class="tasks-grid">
+          <div class="task-card">
+            <div class="t-head"><span class="t-emoji">🖥️</span><strong>技術選型</strong></div>
+            <p>採用 Flutter 或 React Native 跨平台框架，一次開發、雙平台打包成手機 App。</p>
+          </div>
+          <div class="task-card">
+            <div class="t-head"><span class="t-emoji">💧</span><strong>離線化解決 API 問題</strong></div>
+            <p>音檔、單字庫、圖片內建於 App，離線可用；翻譯／發音 API 僅作輔助，避免上線後受限。</p>
+          </div>
+          <div class="task-card">
+            <div class="t-head"><span class="t-emoji">🔧</span><strong>核心功能開發</strong></div>
+            <p>實作單字卡、發音播放、圖片記憶、模擬情境測驗與每日進度追蹤。</p>
+          </div>
+          <div class="task-card">
+            <div class="t-head"><span class="t-emoji">🔌</span><strong>API 與辭典整合</strong></div>
+            <p>串接 TTS 發音與翻譯來源（可參考 Google 翻譯、劍橋辭典），並保留可插拔的服務層。</p>
+          </div>
+          <div class="task-card full">
+            <div class="t-head"><span class="t-emoji">🏗️</span><strong>可升級架構</strong></div>
+            <p>採模組化 / 分層設計，資料與功能可擴充，方便日後新增字庫、AI 對話等升級。</p>
+          </div>
+        </div>
+        <div class="dash-connector">交由 AI 協助產出</div>
+        <div class="ai-output">
+          <div class="a-head"><span class="t-emoji">🤖</span><strong>AI 產出</strong></div>
+          <div class="ai-chips">
+            <span class="ai-chip">程式碼骨架</span>
+            <span class="ai-chip">API 串接範例</span>
+            <span class="ai-chip">資料庫存取層</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="connector"><div class="connector-line"></div></div>
+
+    <!-- Phase 5 -->
+    <div class="phase-block open" id="p5">
+      <div class="phase-header" onclick="toggle('p5')">
+        <div class="phase-num">5</div>
+        <div class="phase-title"><strong>測試與試用驗證</strong><small>功能、發音準確度、真實使用者回饋</small></div>
+        <div class="phase-chevron">▼</div>
+      </div>
+      <div class="tasks-panel">
+        <div class="tasks-grid">
+          <div class="task-card">
+            <div class="t-head"><span class="t-emoji">✅</span><strong>功能與發音測試</strong></div>
+            <p>驗證離線發音、圖片載入、進度紀錄與情境測驗的正確性與效能。</p>
+          </div>
+          <div class="task-card">
+            <div class="t-head"><span class="t-emoji">🧑‍🎓</span><strong>高中生試用回饋</strong></div>
+            <p>找目標學生小規模試用，蒐集介面吸引力、學習效果與留存的實際回饋。</p>
+          </div>
+          <div class="task-card full">
+            <div class="t-head"><span class="t-emoji">🔬</span><strong>問題修正與調校</strong></div>
+            <p>依回饋調整介面動線、每日單字量與難度曲線，修正 bug。</p>
+          </div>
+        </div>
+        <div class="dash-connector">交由 AI 協助產出</div>
+        <div class="ai-output">
+          <div class="a-head"><span class="t-emoji">🤖</span><strong>AI 產出</strong></div>
+          <div class="ai-chips">
+            <span class="ai-chip">測試報告</span>
+            <span class="ai-chip">Bug / 待辦清單</span>
+            <span class="ai-chip">回饋分析摘要</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="connector"><div class="connector-line"></div></div>
+
+    <!-- Phase 6 -->
+    <div class="phase-block open" id="p6">
+      <div class="phase-header" onclick="toggle('p6')">
+        <div class="phase-num">6</div>
+        <div class="phase-title"><strong>上架與版本升級</strong><small>打包上架、數據追蹤、迭代規劃</small></div>
+        <div class="phase-chevron">▼</div>
+      </div>
+      <div class="tasks-panel">
+        <div class="tasks-grid">
+          <div class="task-card">
+            <div class="t-head"><span class="t-emoji">🏭</span><strong>打包與上架</strong></div>
+            <p>打包 iOS / Android 版本，送 App Store 與 Google Play 審核上架。</p>
+          </div>
+          <div class="task-card">
+            <div class="t-head"><span class="t-emoji">📊</span><strong>使用數據追蹤</strong></div>
+            <p>導入基本分析，追蹤每日活躍、單字完成率與留存，作為迭代依據。</p>
+          </div>
+          <div class="task-card full">
+            <div class="t-head"><span class="t-emoji">🚀</span><strong>升級與擴充規劃</strong></div>
+            <p>依可升級架構規劃版本：擴增字庫、AI 對話練習、學測模擬考等新功能。</p>
+          </div>
+        </div>
+        <div class="dash-connector">交由 AI 協助產出</div>
+        <div class="ai-output">
+          <div class="a-head"><span class="t-emoji">🤖</span><strong>AI 產出</strong></div>
+          <div class="ai-chips">
+            <span class="ai-chip">版本迭代路線圖</span>
+            <span class="ai-chip">升級架構規劃</span>
+            <span class="ai-chip">數據儀表板草稿</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>共 6 個開發階段 · 藍框為工程師任務、綠色虛線框為 AI 協作產出 · 點擊階段標題可展開／收合</footer>
+</div>
+
+<script>
+  function toggle(id){document.getElementById(id).classList.toggle('open');}
+  function toggleAll(open){
+    document.querySelectorAll('.phase-block').forEach(function(b){
+      b.classList.toggle('open',open);
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "AI 英語家教",
+  "short_name": "AI 英語",
+  "description": "跟 AI 老師每天練英文會話：情境對話、發音辨識、單字測驗。免費、可離線開啟。",
+  "lang": "zh-Hant",
+  "dir": "ltr",
+  "start_url": "./index.html?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff8f2",
+  "theme_color": "#fff8f2",
+  "categories": ["education", "productivity"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -1,0 +1,1755 @@
+{
+ "_note": "AI 英語家教單字庫，可自行編輯後重新上傳即可更新全家的 App",
+ "_version": "2026-08-18",
+ "words": {
+  "1": [
+   {
+    "en": "apple",
+    "ipa": "/ˈæp.əl/",
+    "pos": "n. 名詞",
+    "zh": "蘋果",
+    "img": "🍎",
+    "exEn": "I eat a red apple.",
+    "exZh": "我吃一顆紅蘋果。"
+   },
+   {
+    "en": "dog",
+    "ipa": "/dɔːɡ/",
+    "pos": "n. 名詞",
+    "zh": "狗",
+    "img": "🐕",
+    "exEn": "The dog can run fast.",
+    "exZh": "這隻狗可以跑很快。"
+   },
+   {
+    "en": "cat",
+    "ipa": "/kæt/",
+    "pos": "n. 名詞",
+    "zh": "貓",
+    "img": "🐈",
+    "exEn": "My cat likes to sleep.",
+    "exZh": "我的貓喜歡睡覺。"
+   },
+   {
+    "en": "sun",
+    "ipa": "/sʌn/",
+    "pos": "n. 名詞",
+    "zh": "太陽",
+    "img": "☀️",
+    "exEn": "The sun is big and warm.",
+    "exZh": "太陽又大又溫暖。"
+   },
+   {
+    "en": "ball",
+    "ipa": "/bɔːl/",
+    "pos": "n. 名詞",
+    "zh": "球",
+    "img": "⚽",
+    "exEn": "Let's play with the ball.",
+    "exZh": "我們來玩球吧。"
+   },
+   {
+    "en": "book",
+    "ipa": "/bʊk/",
+    "pos": "n. 名詞",
+    "zh": "書",
+    "img": "📖",
+    "exEn": "I read a book every night.",
+    "exZh": "我每晚讀一本書。"
+   },
+   {
+    "en": "water",
+    "ipa": "/ˈwɔː.tər/",
+    "pos": "n. 名詞",
+    "zh": "水",
+    "img": "💧",
+    "exEn": "I drink water every day.",
+    "exZh": "我每天喝水。"
+   },
+   {
+    "en": "happy",
+    "ipa": "/ˈhæp.i/",
+    "pos": "adj. 形容詞",
+    "zh": "開心的",
+    "img": "😊",
+    "exEn": "I am happy today!",
+    "exZh": "我今天很開心！"
+   },
+   {
+    "en": "run",
+    "ipa": "/rʌn/",
+    "pos": "v. 動詞",
+    "zh": "跑",
+    "img": "🏃",
+    "exEn": "We run in the park.",
+    "exZh": "我們在公園跑步。"
+   },
+   {
+    "en": "fish",
+    "ipa": "/fɪʃ/",
+    "pos": "n. 名詞",
+    "zh": "魚",
+    "img": "🐟",
+    "exEn": "The fish swims in water.",
+    "exZh": "魚在水裡游。"
+   },
+   {
+    "en": "banana",
+    "ipa": "/bəˈnæn.ə/",
+    "pos": "n. 名詞",
+    "zh": "香蕉",
+    "img": "🍌",
+    "exEn": "I like to eat a banana.",
+    "exZh": "我喜歡吃香蕉。"
+   },
+   {
+    "en": "orange",
+    "ipa": "/ˈɔːr.ɪndʒ/",
+    "pos": "n. 名詞",
+    "zh": "柳橙",
+    "img": "🍊",
+    "exEn": "The orange is sweet.",
+    "exZh": "這顆柳橙很甜。"
+   },
+   {
+    "en": "milk",
+    "ipa": "/mɪlk/",
+    "pos": "n. 名詞",
+    "zh": "牛奶",
+    "img": "🥛",
+    "exEn": "I drink milk in the morning.",
+    "exZh": "我早上喝牛奶。"
+   },
+   {
+    "en": "egg",
+    "ipa": "/ɛɡ/",
+    "pos": "n. 名詞",
+    "zh": "蛋",
+    "img": "🥚",
+    "exEn": "I eat an egg for breakfast.",
+    "exZh": "我早餐吃一顆蛋。"
+   },
+   {
+    "en": "rice",
+    "ipa": "/raɪs/",
+    "pos": "n. 名詞",
+    "zh": "米飯",
+    "img": "🍚",
+    "exEn": "We eat rice every day.",
+    "exZh": "我們每天吃飯。"
+   },
+   {
+    "en": "bread",
+    "ipa": "/brɛd/",
+    "pos": "n. 名詞",
+    "zh": "麵包",
+    "img": "🍞",
+    "exEn": "I like bread and jam.",
+    "exZh": "我喜歡麵包配果醬。"
+   },
+   {
+    "en": "tree",
+    "ipa": "/triː/",
+    "pos": "n. 名詞",
+    "zh": "樹",
+    "img": "🌳",
+    "exEn": "A bird is in the tree.",
+    "exZh": "一隻鳥在樹上。"
+   },
+   {
+    "en": "flower",
+    "ipa": "/ˈflaʊ.ər/",
+    "pos": "n. 名詞",
+    "zh": "花",
+    "img": "🌸",
+    "exEn": "The flower is pink.",
+    "exZh": "這朵花是粉紅色的。"
+   },
+   {
+    "en": "bird",
+    "ipa": "/bɜːrd/",
+    "pos": "n. 名詞",
+    "zh": "鳥",
+    "img": "🐦",
+    "exEn": "The bird can fly.",
+    "exZh": "鳥會飛。"
+   },
+   {
+    "en": "rabbit",
+    "ipa": "/ˈræb.ɪt/",
+    "pos": "n. 名詞",
+    "zh": "兔子",
+    "img": "🐇",
+    "exEn": "The rabbit likes carrots.",
+    "exZh": "兔子喜歡紅蘿蔔。"
+   },
+   {
+    "en": "car",
+    "ipa": "/kɑːr/",
+    "pos": "n. 名詞",
+    "zh": "車子",
+    "img": "🚗",
+    "exEn": "My dad drives a car.",
+    "exZh": "我爸爸開車。"
+   },
+   {
+    "en": "bike",
+    "ipa": "/baɪk/",
+    "pos": "n. 名詞",
+    "zh": "腳踏車",
+    "img": "🚲",
+    "exEn": "I ride my bike to school.",
+    "exZh": "我騎腳踏車上學。"
+   },
+   {
+    "en": "house",
+    "ipa": "/haʊs/",
+    "pos": "n. 名詞",
+    "zh": "房子",
+    "img": "🏠",
+    "exEn": "This is my house.",
+    "exZh": "這是我的家。"
+   },
+   {
+    "en": "rain",
+    "ipa": "/reɪn/",
+    "pos": "n. 名詞",
+    "zh": "雨",
+    "img": "🌧️",
+    "exEn": "I like the rain.",
+    "exZh": "我喜歡下雨。"
+   },
+   {
+    "en": "snow",
+    "ipa": "/snoʊ/",
+    "pos": "n. 名詞",
+    "zh": "雪",
+    "img": "❄️",
+    "exEn": "The snow is white.",
+    "exZh": "雪是白色的。"
+   },
+   {
+    "en": "star",
+    "ipa": "/stɑːr/",
+    "pos": "n. 名詞",
+    "zh": "星星",
+    "img": "⭐",
+    "exEn": "I see a star in the sky.",
+    "exZh": "我看到天上一顆星星。"
+   },
+   {
+    "en": "moon",
+    "ipa": "/muːn/",
+    "pos": "n. 名詞",
+    "zh": "月亮",
+    "img": "🌙",
+    "exEn": "The moon is bright tonight.",
+    "exZh": "今晚月亮很亮。"
+   },
+   {
+    "en": "hand",
+    "ipa": "/hænd/",
+    "pos": "n. 名詞",
+    "zh": "手",
+    "img": "✋",
+    "exEn": "Wash your hands, please.",
+    "exZh": "請洗手。"
+   },
+   {
+    "en": "eye",
+    "ipa": "/aɪ/",
+    "pos": "n. 名詞",
+    "zh": "眼睛",
+    "img": "👁️",
+    "exEn": "Close your eyes.",
+    "exZh": "閉上眼睛。"
+   },
+   {
+    "en": "jump",
+    "ipa": "/dʒʌmp/",
+    "pos": "v. 動詞",
+    "zh": "跳",
+    "img": "🤸",
+    "exEn": "The kids jump and play.",
+    "exZh": "孩子們跳來跳去玩耍。"
+   }
+  ],
+  "2": [
+   {
+    "en": "family",
+    "ipa": "/ˈfæm.əl.i/",
+    "pos": "n. 名詞",
+    "zh": "家庭；家人",
+    "img": "👨‍👩‍👧",
+    "exEn": "I love my family.",
+    "exZh": "我愛我的家人。"
+   },
+   {
+    "en": "school",
+    "ipa": "/skuːl/",
+    "pos": "n. 名詞",
+    "zh": "學校",
+    "img": "🏫",
+    "exEn": "I go to school by bus.",
+    "exZh": "我搭公車上學。"
+   },
+   {
+    "en": "friend",
+    "ipa": "/frɛnd/",
+    "pos": "n. 名詞",
+    "zh": "朋友",
+    "img": "🧑‍🤝‍🧑",
+    "exEn": "She is my best friend.",
+    "exZh": "她是我最好的朋友。"
+   },
+   {
+    "en": "morning",
+    "ipa": "/ˈmɔːr.nɪŋ/",
+    "pos": "n. 名詞",
+    "zh": "早晨",
+    "img": "🌅",
+    "exEn": "I get up early in the morning.",
+    "exZh": "我早上早起。"
+   },
+   {
+    "en": "teacher",
+    "ipa": "/ˈtiː.tʃər/",
+    "pos": "n. 名詞",
+    "zh": "老師",
+    "img": "🧑‍🏫",
+    "exEn": "Our teacher is very kind.",
+    "exZh": "我們老師很親切。"
+   },
+   {
+    "en": "hungry",
+    "ipa": "/ˈhʌŋ.ɡri/",
+    "pos": "adj. 形容詞",
+    "zh": "餓的",
+    "img": "🍔",
+    "exEn": "I am hungry. Let's eat.",
+    "exZh": "我餓了，我們吃飯吧。"
+   },
+   {
+    "en": "weather",
+    "ipa": "/ˈwɛð.ər/",
+    "pos": "n. 名詞",
+    "zh": "天氣",
+    "img": "🌦️",
+    "exEn": "How is the weather today?",
+    "exZh": "今天天氣如何？"
+   },
+   {
+    "en": "money",
+    "ipa": "/ˈmʌn.i/",
+    "pos": "n. 名詞",
+    "zh": "錢",
+    "img": "💰",
+    "exEn": "I save my money in a bank.",
+    "exZh": "我把錢存在銀行。"
+   },
+   {
+    "en": "buy",
+    "ipa": "/baɪ/",
+    "pos": "v. 動詞",
+    "zh": "買",
+    "img": "🛒",
+    "exEn": "I want to buy some fruit.",
+    "exZh": "我想買一些水果。"
+   },
+   {
+    "en": "travel",
+    "ipa": "/ˈtræv.əl/",
+    "pos": "v. 動詞",
+    "zh": "旅行",
+    "img": "✈️",
+    "exEn": "We travel every summer.",
+    "exZh": "我們每年夏天去旅行。"
+   },
+   {
+    "en": "student",
+    "ipa": "/ˈstuː.dənt/",
+    "pos": "n. 名詞",
+    "zh": "學生",
+    "img": "🧑‍🎓",
+    "exEn": "I am a high school student.",
+    "exZh": "我是高中生。"
+   },
+   {
+    "en": "doctor",
+    "ipa": "/ˈdɑːk.tər/",
+    "pos": "n. 名詞",
+    "zh": "醫生",
+    "img": "🧑‍⚕️",
+    "exEn": "The doctor is very kind.",
+    "exZh": "這位醫生很親切。"
+   },
+   {
+    "en": "nurse",
+    "ipa": "/nɜːrs/",
+    "pos": "n. 名詞",
+    "zh": "護理師",
+    "img": "👩‍⚕️",
+    "exEn": "The nurse helps sick people.",
+    "exZh": "護理師幫助病人。"
+   },
+   {
+    "en": "breakfast",
+    "ipa": "/ˈbrɛk.fəst/",
+    "pos": "n. 名詞",
+    "zh": "早餐",
+    "img": "🍳",
+    "exEn": "I eat breakfast at seven.",
+    "exZh": "我七點吃早餐。"
+   },
+   {
+    "en": "dinner",
+    "ipa": "/ˈdɪn.ər/",
+    "pos": "n. 名詞",
+    "zh": "晚餐",
+    "img": "🍽️",
+    "exEn": "We have dinner together.",
+    "exZh": "我們一起吃晚餐。"
+   },
+   {
+    "en": "bedroom",
+    "ipa": "/ˈbɛd.ruːm/",
+    "pos": "n. 名詞",
+    "zh": "臥室",
+    "img": "🛏️",
+    "exEn": "My bedroom is small.",
+    "exZh": "我的臥室很小。"
+   },
+   {
+    "en": "window",
+    "ipa": "/ˈwɪn.doʊ/",
+    "pos": "n. 名詞",
+    "zh": "窗戶",
+    "img": "🪟",
+    "exEn": "Open the window, please.",
+    "exZh": "請打開窗戶。"
+   },
+   {
+    "en": "garden",
+    "ipa": "/ˈɡɑːr.dən/",
+    "pos": "n. 名詞",
+    "zh": "花園",
+    "img": "🌻",
+    "exEn": "Flowers grow in the garden.",
+    "exZh": "花在花園裡生長。"
+   },
+   {
+    "en": "city",
+    "ipa": "/ˈsɪt.i/",
+    "pos": "n. 名詞",
+    "zh": "城市",
+    "img": "🏙️",
+    "exEn": "Taipei is a big city.",
+    "exZh": "台北是個大城市。"
+   },
+   {
+    "en": "country",
+    "ipa": "/ˈkʌn.tri/",
+    "pos": "n. 名詞",
+    "zh": "國家",
+    "img": "🗺️",
+    "exEn": "Which country are you from?",
+    "exZh": "你來自哪個國家？"
+   },
+   {
+    "en": "train",
+    "ipa": "/treɪn/",
+    "pos": "n. 名詞",
+    "zh": "火車",
+    "img": "🚆",
+    "exEn": "I take the train to work.",
+    "exZh": "我搭火車上班。"
+   },
+   {
+    "en": "airplane",
+    "ipa": "/ˈɛr.pleɪn/",
+    "pos": "n. 名詞",
+    "zh": "飛機",
+    "img": "🛫",
+    "exEn": "The airplane is very fast.",
+    "exZh": "飛機很快。"
+   },
+   {
+    "en": "ticket",
+    "ipa": "/ˈtɪk.ɪt/",
+    "pos": "n. 名詞",
+    "zh": "票",
+    "img": "🎫",
+    "exEn": "I need a train ticket.",
+    "exZh": "我需要一張火車票。"
+   },
+   {
+    "en": "hospital",
+    "ipa": "/ˈhɑː.spɪ.təl/",
+    "pos": "n. 名詞",
+    "zh": "醫院",
+    "img": "🏥",
+    "exEn": "She works in a hospital.",
+    "exZh": "她在醫院工作。"
+   },
+   {
+    "en": "medicine",
+    "ipa": "/ˈmɛd.ɪ.sɪn/",
+    "pos": "n. 名詞",
+    "zh": "藥",
+    "img": "💊",
+    "exEn": "Take this medicine twice a day.",
+    "exZh": "這藥一天吃兩次。"
+   },
+   {
+    "en": "clothes",
+    "ipa": "/kloʊz/",
+    "pos": "n. 名詞",
+    "zh": "衣服",
+    "img": "👕",
+    "exEn": "I buy new clothes.",
+    "exZh": "我買新衣服。"
+   },
+   {
+    "en": "shoes",
+    "ipa": "/ʃuːz/",
+    "pos": "n. 名詞",
+    "zh": "鞋子",
+    "img": "👟",
+    "exEn": "These shoes are too small.",
+    "exZh": "這雙鞋太小了。"
+   },
+   {
+    "en": "color",
+    "ipa": "/ˈkʌl.ər/",
+    "pos": "n. 名詞",
+    "zh": "顏色",
+    "img": "🎨",
+    "exEn": "What color do you like?",
+    "exZh": "你喜歡什麼顏色？"
+   },
+   {
+    "en": "music",
+    "ipa": "/ˈmjuː.zɪk/",
+    "pos": "n. 名詞",
+    "zh": "音樂",
+    "img": "🎵",
+    "exEn": "I listen to music every day.",
+    "exZh": "我每天聽音樂。"
+   },
+   {
+    "en": "movie",
+    "ipa": "/ˈmuː.vi/",
+    "pos": "n. 名詞",
+    "zh": "電影",
+    "img": "🎬",
+    "exEn": "Let's watch a movie.",
+    "exZh": "我們來看電影吧。"
+   },
+   {
+    "en": "letter",
+    "ipa": "/ˈlɛt.ər/",
+    "pos": "n. 名詞",
+    "zh": "信",
+    "img": "✉️",
+    "exEn": "I wrote a letter to my friend.",
+    "exZh": "我寫了封信給朋友。"
+   },
+   {
+    "en": "phone",
+    "ipa": "/foʊn/",
+    "pos": "n. 名詞",
+    "zh": "手機；電話",
+    "img": "📱",
+    "exEn": "Call me on my phone.",
+    "exZh": "打我手機。"
+   },
+   {
+    "en": "clock",
+    "ipa": "/klɑːk/",
+    "pos": "n. 名詞",
+    "zh": "時鐘",
+    "img": "🕐",
+    "exEn": "The clock is on the wall.",
+    "exZh": "時鐘在牆上。"
+   },
+   {
+    "en": "tired",
+    "ipa": "/ˈtaɪ.ərd/",
+    "pos": "adj. 形容詞",
+    "zh": "疲累的",
+    "img": "😴",
+    "exEn": "I am tired after work.",
+    "exZh": "我下班後很累。"
+   },
+   {
+    "en": "angry",
+    "ipa": "/ˈæŋ.ɡri/",
+    "pos": "adj. 形容詞",
+    "zh": "生氣的",
+    "img": "😠",
+    "exEn": "Don't be angry.",
+    "exZh": "別生氣。"
+   },
+   {
+    "en": "afraid",
+    "ipa": "/əˈfreɪd/",
+    "pos": "adj. 形容詞",
+    "zh": "害怕的",
+    "img": "😨",
+    "exEn": "I am afraid of the dark.",
+    "exZh": "我怕黑。"
+   },
+   {
+    "en": "remember",
+    "ipa": "/rɪˈmɛm.bər/",
+    "pos": "v. 動詞",
+    "zh": "記得",
+    "img": "🧠",
+    "exEn": "I remember your name.",
+    "exZh": "我記得你的名字。"
+   },
+   {
+    "en": "question",
+    "ipa": "/ˈkwɛs.tʃən/",
+    "pos": "n. 名詞",
+    "zh": "問題",
+    "img": "❓",
+    "exEn": "May I ask a question?",
+    "exZh": "我可以問個問題嗎？"
+   }
+  ],
+  "3": [
+   {
+    "en": "environment",
+    "ipa": "/ɪnˈvaɪ.rən.mənt/",
+    "pos": "n. 名詞",
+    "zh": "環境",
+    "img": "🌍",
+    "exEn": "We should protect the environment.",
+    "exZh": "我們應該保護環境。"
+   },
+   {
+    "en": "technology",
+    "ipa": "/tɛkˈnɑː.lə.dʒi/",
+    "pos": "n. 名詞",
+    "zh": "科技",
+    "img": "💻",
+    "exEn": "Technology changes our lives.",
+    "exZh": "科技改變我們的生活。"
+   },
+   {
+    "en": "health",
+    "ipa": "/hɛlθ/",
+    "pos": "n. 名詞",
+    "zh": "健康",
+    "img": "🏥",
+    "exEn": "Good sleep is good for your health.",
+    "exZh": "良好睡眠有益健康。"
+   },
+   {
+    "en": "decision",
+    "ipa": "/dɪˈsɪʒ.ən/",
+    "pos": "n. 名詞",
+    "zh": "決定",
+    "img": "⚖️",
+    "exEn": "It was a hard decision to make.",
+    "exZh": "這是個難做的決定。"
+   },
+   {
+    "en": "improve",
+    "ipa": "/ɪmˈpruːv/",
+    "pos": "v. 動詞",
+    "zh": "改善；進步",
+    "img": "📈",
+    "exEn": "I want to improve my English.",
+    "exZh": "我想改善我的英文。"
+   },
+   {
+    "en": "culture",
+    "ipa": "/ˈkʌl.tʃər/",
+    "pos": "n. 名詞",
+    "zh": "文化",
+    "img": "🎭",
+    "exEn": "Travel helps us learn new cultures.",
+    "exZh": "旅行幫助我們認識新文化。"
+   },
+   {
+    "en": "opportunity",
+    "ipa": "/ˌɑː.pərˈtuː.nə.ti/",
+    "pos": "n. 名詞",
+    "zh": "機會",
+    "img": "🚪",
+    "exEn": "This job is a great opportunity.",
+    "exZh": "這份工作是個好機會。"
+   },
+   {
+    "en": "focus",
+    "ipa": "/ˈfoʊ.kəs/",
+    "pos": "v. 動詞",
+    "zh": "專注",
+    "img": "🎯",
+    "exEn": "Please focus on your work.",
+    "exZh": "請專注在你的工作上。"
+   },
+   {
+    "en": "confident",
+    "ipa": "/ˈkɑːn.fɪ.dənt/",
+    "pos": "adj. 形容詞",
+    "zh": "有自信的",
+    "img": "💪",
+    "exEn": "She feels confident before the test.",
+    "exZh": "她考試前很有自信。"
+   },
+   {
+    "en": "benefit",
+    "ipa": "/ˈbɛn.ɪ.fɪt/",
+    "pos": "n. 名詞",
+    "zh": "好處；益處",
+    "img": "➕",
+    "exEn": "Exercise has many benefits.",
+    "exZh": "運動有許多好處。"
+   },
+   {
+    "en": "education",
+    "ipa": "/ˌɛdʒ.əˈkeɪ.ʃən/",
+    "pos": "n. 名詞",
+    "zh": "教育",
+    "img": "🎓",
+    "exEn": "Education opens many doors.",
+    "exZh": "教育開啟許多機會。"
+   },
+   {
+    "en": "society",
+    "ipa": "/səˈsaɪ.ə.ti/",
+    "pos": "n. 名詞",
+    "zh": "社會",
+    "img": "👥",
+    "exEn": "Everyone is a part of society.",
+    "exZh": "每個人都是社會的一份子。"
+   },
+   {
+    "en": "government",
+    "ipa": "/ˈɡʌv.ərn.mənt/",
+    "pos": "n. 名詞",
+    "zh": "政府",
+    "img": "🏛️",
+    "exEn": "The government built a new road.",
+    "exZh": "政府蓋了一條新路。"
+   },
+   {
+    "en": "economy",
+    "ipa": "/ɪˈkɑː.nə.mi/",
+    "pos": "n. 名詞",
+    "zh": "經濟",
+    "img": "💹",
+    "exEn": "The economy is growing this year.",
+    "exZh": "今年經濟正在成長。"
+   },
+   {
+    "en": "science",
+    "ipa": "/ˈsaɪ.əns/",
+    "pos": "n. 名詞",
+    "zh": "科學",
+    "img": "🔬",
+    "exEn": "I love science class.",
+    "exZh": "我喜歡科學課。"
+   },
+   {
+    "en": "energy",
+    "ipa": "/ˈɛn.ər.dʒi/",
+    "pos": "n. 名詞",
+    "zh": "能源；能量",
+    "img": "⚡",
+    "exEn": "Solar energy is clean.",
+    "exZh": "太陽能很乾淨。"
+   },
+   {
+    "en": "pollution",
+    "ipa": "/pəˈluː.ʃən/",
+    "pos": "n. 名詞",
+    "zh": "污染",
+    "img": "🏭",
+    "exEn": "Air pollution is a big problem.",
+    "exZh": "空氣污染是個大問題。"
+   },
+   {
+    "en": "climate",
+    "ipa": "/ˈklaɪ.mət/",
+    "pos": "n. 名詞",
+    "zh": "氣候",
+    "img": "🌡️",
+    "exEn": "Climate change affects us all.",
+    "exZh": "氣候變遷影響我們所有人。"
+   },
+   {
+    "en": "nature",
+    "ipa": "/ˈneɪ.tʃər/",
+    "pos": "n. 名詞",
+    "zh": "大自然",
+    "img": "🌿",
+    "exEn": "We enjoy nature on weekends.",
+    "exZh": "我們週末享受大自然。"
+   },
+   {
+    "en": "develop",
+    "ipa": "/dɪˈvɛl.əp/",
+    "pos": "v. 動詞",
+    "zh": "發展；培養",
+    "img": "🌱",
+    "exEn": "The city develops very fast.",
+    "exZh": "這座城市發展得很快。"
+   },
+   {
+    "en": "increase",
+    "ipa": "/ɪnˈkriːs/",
+    "pos": "v. 動詞",
+    "zh": "增加",
+    "img": "📈",
+    "exEn": "Prices increase every year.",
+    "exZh": "物價每年上漲。"
+   },
+   {
+    "en": "reduce",
+    "ipa": "/rɪˈduːs/",
+    "pos": "v. 動詞",
+    "zh": "減少",
+    "img": "♻️",
+    "exEn": "We must reduce plastic waste.",
+    "exZh": "我們必須減少塑膠垃圾。"
+   },
+   {
+    "en": "challenge",
+    "ipa": "/ˈtʃæl.əndʒ/",
+    "pos": "n. 名詞",
+    "zh": "挑戰",
+    "img": "🧗",
+    "exEn": "Learning English is a fun challenge.",
+    "exZh": "學英文是個有趣的挑戰。"
+   },
+   {
+    "en": "success",
+    "ipa": "/səkˈsɛs/",
+    "pos": "n. 名詞",
+    "zh": "成功",
+    "img": "🏆",
+    "exEn": "Hard work leads to success.",
+    "exZh": "努力帶來成功。"
+   },
+   {
+    "en": "failure",
+    "ipa": "/ˈfeɪl.jər/",
+    "pos": "n. 名詞",
+    "zh": "失敗",
+    "img": "❌",
+    "exEn": "Failure teaches us a lot.",
+    "exZh": "失敗教會我們很多。"
+   },
+   {
+    "en": "experience",
+    "ipa": "/ɪkˈspɪr.i.əns/",
+    "pos": "n. 名詞",
+    "zh": "經驗",
+    "img": "🧭",
+    "exEn": "Travel gives us new experiences.",
+    "exZh": "旅行帶給我們新經驗。"
+   },
+   {
+    "en": "knowledge",
+    "ipa": "/ˈnɑː.lɪdʒ/",
+    "pos": "n. 名詞",
+    "zh": "知識",
+    "img": "📚",
+    "exEn": "Reading builds our knowledge.",
+    "exZh": "閱讀累積我們的知識。"
+   },
+   {
+    "en": "information",
+    "ipa": "/ˌɪn.fərˈmeɪ.ʃən/",
+    "pos": "n. 名詞",
+    "zh": "資訊",
+    "img": "ℹ️",
+    "exEn": "I need more information about it.",
+    "exZh": "我需要更多相關資訊。"
+   },
+   {
+    "en": "communicate",
+    "ipa": "/kəˈmjuː.nɪ.keɪt/",
+    "pos": "v. 動詞",
+    "zh": "溝通",
+    "img": "💬",
+    "exEn": "We communicate by phone.",
+    "exZh": "我們用電話溝通。"
+   },
+   {
+    "en": "language",
+    "ipa": "/ˈlæŋ.ɡwɪdʒ/",
+    "pos": "n. 名詞",
+    "zh": "語言",
+    "img": "🗣️",
+    "exEn": "English is a useful language.",
+    "exZh": "英文是很實用的語言。"
+   },
+   {
+    "en": "opinion",
+    "ipa": "/əˈpɪn.jən/",
+    "pos": "n. 名詞",
+    "zh": "意見；看法",
+    "img": "💭",
+    "exEn": "What is your opinion?",
+    "exZh": "你的看法是什麼？"
+   },
+   {
+    "en": "solution",
+    "ipa": "/səˈluː.ʃən/",
+    "pos": "n. 名詞",
+    "zh": "解決方法",
+    "img": "💡",
+    "exEn": "We found a good solution.",
+    "exZh": "我們找到好方法。"
+   },
+   {
+    "en": "problem",
+    "ipa": "/ˈprɑː.bləm/",
+    "pos": "n. 名詞",
+    "zh": "問題",
+    "img": "❗",
+    "exEn": "Let's solve this problem together.",
+    "exZh": "我們一起解決這個問題。"
+   },
+   {
+    "en": "advantage",
+    "ipa": "/ədˈvæn.tɪdʒ/",
+    "pos": "n. 名詞",
+    "zh": "優勢；好處",
+    "img": "✅",
+    "exEn": "Speaking English is an advantage.",
+    "exZh": "會說英文是一種優勢。"
+   },
+   {
+    "en": "effect",
+    "ipa": "/ɪˈfɛkt/",
+    "pos": "n. 名詞",
+    "zh": "影響；效果",
+    "img": "🎇",
+    "exEn": "The medicine has a strong effect.",
+    "exZh": "這藥效果很強。"
+   },
+   {
+    "en": "cause",
+    "ipa": "/kɔːz/",
+    "pos": "n./v. 名/動",
+    "zh": "原因；造成",
+    "img": "🔗",
+    "exEn": "What is the cause of the fire?",
+    "exZh": "這場火的原因是什麼？"
+   },
+   {
+    "en": "result",
+    "ipa": "/rɪˈzʌlt/",
+    "pos": "n. 名詞",
+    "zh": "結果",
+    "img": "📋",
+    "exEn": "The result made us happy.",
+    "exZh": "結果讓我們很開心。"
+   },
+   {
+    "en": "goal",
+    "ipa": "/ɡoʊl/",
+    "pos": "n. 名詞",
+    "zh": "目標",
+    "img": "🥅",
+    "exEn": "My goal is to speak fluently.",
+    "exZh": "我的目標是說得流利。"
+   },
+   {
+    "en": "effort",
+    "ipa": "/ˈɛf.ərt/",
+    "pos": "n. 名詞",
+    "zh": "努力",
+    "img": "🏋️",
+    "exEn": "Success takes time and effort.",
+    "exZh": "成功需要時間和努力。"
+   },
+   {
+    "en": "ability",
+    "ipa": "/əˈbɪl.ə.ti/",
+    "pos": "n. 名詞",
+    "zh": "能力",
+    "img": "🧠",
+    "exEn": "She has the ability to lead.",
+    "exZh": "她有領導的能力。"
+   },
+   {
+    "en": "achieve",
+    "ipa": "/əˈtʃiːv/",
+    "pos": "v. 動詞",
+    "zh": "達成",
+    "img": "🏅",
+    "exEn": "You can achieve your dreams.",
+    "exZh": "你能實現你的夢想。"
+   },
+   {
+    "en": "creative",
+    "ipa": "/kriˈeɪ.tɪv/",
+    "pos": "adj. 形容詞",
+    "zh": "有創意的",
+    "img": "🎨",
+    "exEn": "He is a creative artist.",
+    "exZh": "他是個有創意的藝術家。"
+   },
+   {
+    "en": "responsible",
+    "ipa": "/rɪˈspɑːn.sə.bəl/",
+    "pos": "adj. 形容詞",
+    "zh": "負責任的",
+    "img": "🫡",
+    "exEn": "Be responsible for your work.",
+    "exZh": "為你的工作負責。"
+   },
+   {
+    "en": "protect",
+    "ipa": "/prəˈtɛkt/",
+    "pos": "v. 動詞",
+    "zh": "保護",
+    "img": "🛡️",
+    "exEn": "We must protect the earth.",
+    "exZh": "我們必須保護地球。"
+   },
+   {
+    "en": "support",
+    "ipa": "/səˈpɔːrt/",
+    "pos": "n./v. 名/動",
+    "zh": "支持",
+    "img": "🤝",
+    "exEn": "Thank you for your support.",
+    "exZh": "謝謝你的支持。"
+   },
+   {
+    "en": "encourage",
+    "ipa": "/ɪnˈkɜːr.ɪdʒ/",
+    "pos": "v. 動詞",
+    "zh": "鼓勵",
+    "img": "👏",
+    "exEn": "Teachers encourage their students.",
+    "exZh": "老師鼓勵學生。"
+   },
+   {
+    "en": "imagine",
+    "ipa": "/ɪˈmædʒ.ɪn/",
+    "pos": "v. 動詞",
+    "zh": "想像",
+    "img": "🌈",
+    "exEn": "Imagine a better future.",
+    "exZh": "想像一個更好的未來。"
+   },
+   {
+    "en": "celebrate",
+    "ipa": "/ˈsɛl.ə.breɪt/",
+    "pos": "v. 動詞",
+    "zh": "慶祝",
+    "img": "🎉",
+    "exEn": "We celebrate our success.",
+    "exZh": "我們慶祝我們的成功。"
+   },
+   {
+    "en": "population",
+    "ipa": "/ˌpɑː.pjəˈleɪ.ʃən/",
+    "pos": "n. 名詞",
+    "zh": "人口",
+    "img": "👨‍👩‍👧‍👦",
+    "exEn": "The city has a large population.",
+    "exZh": "這城市人口眾多。"
+   },
+   {
+    "en": "pressure",
+    "ipa": "/ˈprɛʃ.ər/",
+    "pos": "n. 名詞",
+    "zh": "壓力",
+    "img": "😣",
+    "exEn": "Students often feel pressure.",
+    "exZh": "學生常常感到壓力。"
+   }
+  ],
+  "4": [
+   {
+    "en": "achievement",
+    "ipa": "/əˈtʃiːv.mənt/",
+    "pos": "n. 名詞",
+    "zh": "成就",
+    "img": "🏅",
+    "exEn": "Winning the prize was a big achievement.",
+    "exZh": "得獎是很大的成就。"
+   },
+   {
+    "en": "advertise",
+    "ipa": "/ˈæd.vər.taɪz/",
+    "pos": "v. 動詞",
+    "zh": "廣告；宣傳",
+    "img": "📣",
+    "exEn": "They advertise the product on TV.",
+    "exZh": "他們在電視上宣傳產品。"
+   },
+   {
+    "en": "appreciate",
+    "ipa": "/əˈpriː.ʃi.eɪt/",
+    "pos": "v. 動詞",
+    "zh": "感激；欣賞",
+    "img": "🙏",
+    "exEn": "I appreciate your help.",
+    "exZh": "我感激你的幫忙。"
+   },
+   {
+    "en": "attitude",
+    "ipa": "/ˈæt.ɪ.tuːd/",
+    "pos": "n. 名詞",
+    "zh": "態度",
+    "img": "🙂",
+    "exEn": "A positive attitude helps a lot.",
+    "exZh": "正向的態度很有幫助。"
+   },
+   {
+    "en": "available",
+    "ipa": "/əˈveɪ.lə.bəl/",
+    "pos": "adj. 形容詞",
+    "zh": "可得到的；有空的",
+    "img": "🈳",
+    "exEn": "Is this seat available?",
+    "exZh": "這個位子有人坐嗎？"
+   },
+   {
+    "en": "confidence",
+    "ipa": "/ˈkɑːn.fɪ.dəns/",
+    "pos": "n. 名詞",
+    "zh": "信心",
+    "img": "💪",
+    "exEn": "She speaks with confidence.",
+    "exZh": "她說話很有信心。"
+   },
+   {
+    "en": "consider",
+    "ipa": "/kənˈsɪd.ər/",
+    "pos": "v. 動詞",
+    "zh": "考慮",
+    "img": "🤔",
+    "exEn": "Please consider my idea.",
+    "exZh": "請考慮我的想法。"
+   },
+   {
+    "en": "describe",
+    "ipa": "/dɪˈskraɪb/",
+    "pos": "v. 動詞",
+    "zh": "描述",
+    "img": "🗒️",
+    "exEn": "Can you describe the man?",
+    "exZh": "你能描述那個人嗎？"
+   },
+   {
+    "en": "discuss",
+    "ipa": "/dɪˈskʌs/",
+    "pos": "v. 動詞",
+    "zh": "討論",
+    "img": "💬",
+    "exEn": "Let's discuss the plan.",
+    "exZh": "我們來討論這個計畫。"
+   },
+   {
+    "en": "encourage",
+    "ipa": "/ɪnˈkɜːr.ɪdʒ/",
+    "pos": "v. 動詞",
+    "zh": "鼓勵",
+    "img": "👏",
+    "exEn": "My parents encourage me to try.",
+    "exZh": "我父母鼓勵我嘗試。"
+   },
+   {
+    "en": "environmentally",
+    "ipa": "/ɪnˌvaɪ.rənˈmɛn.təl.i/",
+    "pos": "adv. 副詞",
+    "zh": "環境上地",
+    "img": "🌱",
+    "exEn": "We should live environmentally friendly.",
+    "exZh": "我們應該過環保的生活。"
+   },
+   {
+    "en": "experiment",
+    "ipa": "/ɪkˈspɛr.ɪ.mənt/",
+    "pos": "n. 名詞",
+    "zh": "實驗",
+    "img": "⚗️",
+    "exEn": "We did a science experiment.",
+    "exZh": "我們做了一個科學實驗。"
+   },
+   {
+    "en": "familiar",
+    "ipa": "/fəˈmɪl.jər/",
+    "pos": "adj. 形容詞",
+    "zh": "熟悉的",
+    "img": "👀",
+    "exEn": "This song sounds familiar.",
+    "exZh": "這首歌聽起來很熟。"
+   },
+   {
+    "en": "generation",
+    "ipa": "/ˌdʒɛn.əˈreɪ.ʃən/",
+    "pos": "n. 名詞",
+    "zh": "世代",
+    "img": "👨‍👩‍👧‍👦",
+    "exEn": "The young generation loves the internet.",
+    "exZh": "年輕世代喜愛網路。"
+   },
+   {
+    "en": "impression",
+    "ipa": "/ɪmˈprɛʃ.ən/",
+    "pos": "n. 名詞",
+    "zh": "印象",
+    "img": "🪞",
+    "exEn": "He made a good impression.",
+    "exZh": "他留下好印象。"
+   },
+   {
+    "en": "independent",
+    "ipa": "/ˌɪn.dɪˈpɛn.dənt/",
+    "pos": "adj. 形容詞",
+    "zh": "獨立的",
+    "img": "🧍",
+    "exEn": "She is an independent woman.",
+    "exZh": "她是個獨立的女性。"
+   },
+   {
+    "en": "introduce",
+    "ipa": "/ˌɪn.trəˈduːs/",
+    "pos": "v. 動詞",
+    "zh": "介紹",
+    "img": "🤝",
+    "exEn": "Let me introduce my friend.",
+    "exZh": "讓我介紹我的朋友。"
+   },
+   {
+    "en": "patient",
+    "ipa": "/ˈpeɪ.ʃənt/",
+    "pos": "adj. 形容詞",
+    "zh": "有耐心的",
+    "img": "⏳",
+    "exEn": "A good teacher is patient.",
+    "exZh": "好老師很有耐心。"
+   },
+   {
+    "en": "realize",
+    "ipa": "/ˈriː.ə.laɪz/",
+    "pos": "v. 動詞",
+    "zh": "了解；領悟",
+    "img": "💡",
+    "exEn": "I realize my mistake now.",
+    "exZh": "我現在明白我的錯了。"
+   },
+   {
+    "en": "suggest",
+    "ipa": "/səˈdʒɛst/",
+    "pos": "v. 動詞",
+    "zh": "建議",
+    "img": "🫱",
+    "exEn": "I suggest we leave early.",
+    "exZh": "我建議我們早點走。"
+   },
+   {
+    "en": "tradition",
+    "ipa": "/trəˈdɪʃ.ən/",
+    "pos": "n. 名詞",
+    "zh": "傳統",
+    "img": "🎎",
+    "exEn": "It is a family tradition.",
+    "exZh": "這是家庭傳統。"
+   },
+   {
+    "en": "volunteer",
+    "ipa": "/ˌvɑː.lənˈtɪr/",
+    "pos": "n. 名詞",
+    "zh": "志工",
+    "img": "🙋",
+    "exEn": "She works as a volunteer.",
+    "exZh": "她當志工。"
+   },
+   {
+    "en": "anniversary",
+    "ipa": "/ˌæn.ɪˈvɜːr.sər.i/",
+    "pos": "n. 名詞",
+    "zh": "週年紀念",
+    "img": "🎊",
+    "exEn": "Today is our anniversary.",
+    "exZh": "今天是我們的紀念日。"
+   },
+   {
+    "en": "apologize",
+    "ipa": "/əˈpɑː.lə.dʒaɪz/",
+    "pos": "v. 動詞",
+    "zh": "道歉",
+    "img": "🙇",
+    "exEn": "He apologized for being late.",
+    "exZh": "他為遲到道歉。"
+   },
+   {
+    "en": "convenient",
+    "ipa": "/kənˈviː.ni.ənt/",
+    "pos": "adj. 形容詞",
+    "zh": "方便的",
+    "img": "👍",
+    "exEn": "The store is very convenient.",
+    "exZh": "這家店很方便。"
+   }
+  ],
+  "5": [
+   {
+    "en": "appreciation",
+    "ipa": "/əˌpriː.ʃiˈeɪ.ʃən/",
+    "pos": "n. 名詞",
+    "zh": "感激；欣賞",
+    "img": "🙏",
+    "exEn": "She showed her appreciation with a gift.",
+    "exZh": "她用禮物表達感激。"
+   },
+   {
+    "en": "consequence",
+    "ipa": "/ˈkɑːn.sə.kwɛns/",
+    "pos": "n. 名詞",
+    "zh": "後果",
+    "img": "⚠️",
+    "exEn": "Every choice has a consequence.",
+    "exZh": "每個選擇都有後果。"
+   },
+   {
+    "en": "contribute",
+    "ipa": "/kənˈtrɪb.juːt/",
+    "pos": "v. 動詞",
+    "zh": "貢獻",
+    "img": "🤲",
+    "exEn": "Everyone can contribute to the team.",
+    "exZh": "每個人都能為團隊貢獻。"
+   },
+   {
+    "en": "definite",
+    "ipa": "/ˈdɛf.ɪ.nət/",
+    "pos": "adj. 形容詞",
+    "zh": "確定的",
+    "img": "✔️",
+    "exEn": "We need a definite answer.",
+    "exZh": "我們需要明確的答案。"
+   },
+   {
+    "en": "efficient",
+    "ipa": "/ɪˈfɪʃ.ənt/",
+    "pos": "adj. 形容詞",
+    "zh": "有效率的",
+    "img": "⚙️",
+    "exEn": "This is an efficient way to work.",
+    "exZh": "這是有效率的工作方式。"
+   },
+   {
+    "en": "emphasize",
+    "ipa": "/ˈɛm.fə.saɪz/",
+    "pos": "v. 動詞",
+    "zh": "強調",
+    "img": "❗",
+    "exEn": "The teacher emphasized safety.",
+    "exZh": "老師強調安全。"
+   },
+   {
+    "en": "establish",
+    "ipa": "/ɪˈstæb.lɪʃ/",
+    "pos": "v. 動詞",
+    "zh": "建立",
+    "img": "🏗️",
+    "exEn": "They established a new company.",
+    "exZh": "他們成立了一家新公司。"
+   },
+   {
+    "en": "fascinating",
+    "ipa": "/ˈfæs.ə.neɪ.tɪŋ/",
+    "pos": "adj. 形容詞",
+    "zh": "迷人的",
+    "img": "✨",
+    "exEn": "The story is fascinating.",
+    "exZh": "這故事很迷人。"
+   },
+   {
+    "en": "generous",
+    "ipa": "/ˈdʒɛn.ər.əs/",
+    "pos": "adj. 形容詞",
+    "zh": "慷慨的",
+    "img": "🎁",
+    "exEn": "He is generous to everyone.",
+    "exZh": "他對每個人都很慷慨。"
+   },
+   {
+    "en": "guarantee",
+    "ipa": "/ˌɡær.ənˈtiː/",
+    "pos": "v. 動詞",
+    "zh": "保證",
+    "img": "🛡️",
+    "exEn": "We guarantee good quality.",
+    "exZh": "我們保證好品質。"
+   },
+   {
+    "en": "influence",
+    "ipa": "/ˈɪn.flu.əns/",
+    "pos": "n./v. 名/動",
+    "zh": "影響",
+    "img": "🌀",
+    "exEn": "Friends influence our choices.",
+    "exZh": "朋友影響我們的選擇。"
+   },
+   {
+    "en": "international",
+    "ipa": "/ˌɪn.tərˈnæʃ.ən.əl/",
+    "pos": "adj. 形容詞",
+    "zh": "國際的",
+    "img": "🌐",
+    "exEn": "It is an international airport.",
+    "exZh": "這是國際機場。"
+   },
+   {
+    "en": "necessary",
+    "ipa": "/ˈnɛs.ə.sɛr.i/",
+    "pos": "adj. 形容詞",
+    "zh": "必要的",
+    "img": "📌",
+    "exEn": "Sleep is necessary for health.",
+    "exZh": "睡眠對健康是必要的。"
+   },
+   {
+    "en": "opportunity",
+    "ipa": "/ˌɑː.pərˈtuː.nə.ti/",
+    "pos": "n. 名詞",
+    "zh": "機會",
+    "img": "🚪",
+    "exEn": "Don't miss this opportunity.",
+    "exZh": "別錯過這個機會。"
+   },
+   {
+    "en": "participate",
+    "ipa": "/pɑːrˈtɪs.ɪ.peɪt/",
+    "pos": "v. 動詞",
+    "zh": "參加",
+    "img": "🙋",
+    "exEn": "I want to participate in the contest.",
+    "exZh": "我想參加比賽。"
+   },
+   {
+    "en": "performance",
+    "ipa": "/pərˈfɔːr.məns/",
+    "pos": "n. 名詞",
+    "zh": "表演；表現",
+    "img": "🎭",
+    "exEn": "Their performance was amazing.",
+    "exZh": "他們的表演很棒。"
+   },
+   {
+    "en": "recommend",
+    "ipa": "/ˌrɛk.əˈmɛnd/",
+    "pos": "v. 動詞",
+    "zh": "推薦",
+    "img": "👍",
+    "exEn": "I recommend this restaurant.",
+    "exZh": "我推薦這家餐廳。"
+   },
+   {
+    "en": "reputation",
+    "ipa": "/ˌrɛp.jəˈteɪ.ʃən/",
+    "pos": "n. 名詞",
+    "zh": "名聲",
+    "img": "🏆",
+    "exEn": "The school has a good reputation.",
+    "exZh": "這學校名聲很好。"
+   },
+   {
+    "en": "responsibility",
+    "ipa": "/rɪˌspɑːn.səˈbɪl.ə.ti/",
+    "pos": "n. 名詞",
+    "zh": "責任",
+    "img": "🫡",
+    "exEn": "It is my responsibility.",
+    "exZh": "這是我的責任。"
+   },
+   {
+    "en": "significant",
+    "ipa": "/sɪɡˈnɪf.ɪ.kənt/",
+    "pos": "adj. 形容詞",
+    "zh": "重要的；顯著的",
+    "img": "⭐",
+    "exEn": "There was a significant change.",
+    "exZh": "有了顯著的改變。"
+   },
+   {
+    "en": "strategy",
+    "ipa": "/ˈstræt.ə.dʒi/",
+    "pos": "n. 名詞",
+    "zh": "策略",
+    "img": "♟️",
+    "exEn": "We need a new strategy.",
+    "exZh": "我們需要新策略。"
+   },
+   {
+    "en": "sufficient",
+    "ipa": "/səˈfɪʃ.ənt/",
+    "pos": "adj. 形容詞",
+    "zh": "足夠的",
+    "img": "✅",
+    "exEn": "We have sufficient food.",
+    "exZh": "我們有足夠的食物。"
+   },
+   {
+    "en": "tremendous",
+    "ipa": "/trɪˈmɛn.dəs/",
+    "pos": "adj. 形容詞",
+    "zh": "巨大的",
+    "img": "🐘",
+    "exEn": "They made tremendous progress.",
+    "exZh": "他們有巨大的進步。"
+   },
+   {
+    "en": "vary",
+    "ipa": "/ˈvɛr.i/",
+    "pos": "v. 動詞",
+    "zh": "變化；不同",
+    "img": "🔀",
+    "exEn": "Prices vary from shop to shop.",
+    "exZh": "價格因店而異。"
+   },
+   {
+    "en": "willing",
+    "ipa": "/ˈwɪl.ɪŋ/",
+    "pos": "adj. 形容詞",
+    "zh": "願意的",
+    "img": "🙌",
+    "exEn": "I am willing to help.",
+    "exZh": "我願意幫忙。"
+   }
+  ],
+  "6": [
+   {
+    "en": "abstract",
+    "ipa": "/ˈæb.strækt/",
+    "pos": "adj. 形容詞",
+    "zh": "抽象的",
+    "img": "🌀",
+    "exEn": "Love is an abstract idea.",
+    "exZh": "愛是抽象的概念。"
+   },
+   {
+    "en": "accomplish",
+    "ipa": "/əˈkɑːm.plɪʃ/",
+    "pos": "v. 動詞",
+    "zh": "完成；達成",
+    "img": "🎯",
+    "exEn": "She accomplished her goal.",
+    "exZh": "她達成了目標。"
+   },
+   {
+    "en": "analyze",
+    "ipa": "/ˈæn.ə.laɪz/",
+    "pos": "v. 動詞",
+    "zh": "分析",
+    "img": "🔬",
+    "exEn": "Let's analyze the data.",
+    "exZh": "我們來分析資料。"
+   },
+   {
+    "en": "appropriate",
+    "ipa": "/əˈproʊ.pri.ət/",
+    "pos": "adj. 形容詞",
+    "zh": "適當的",
+    "img": "👔",
+    "exEn": "Wear appropriate clothes.",
+    "exZh": "穿著適當的衣服。"
+   },
+   {
+    "en": "characteristic",
+    "ipa": "/ˌkær.ək.təˈrɪs.tɪk/",
+    "pos": "n. 名詞",
+    "zh": "特徵",
+    "img": "🧬",
+    "exEn": "Kindness is her main characteristic.",
+    "exZh": "善良是她的主要特質。"
+   },
+   {
+    "en": "circumstance",
+    "ipa": "/ˈsɜːr.kəm.stæns/",
+    "pos": "n. 名詞",
+    "zh": "情況；環境",
+    "img": "🌦️",
+    "exEn": "We did our best under the circumstances.",
+    "exZh": "在那種情況下我們盡了力。"
+   },
+   {
+    "en": "comprehend",
+    "ipa": "/ˌkɑːm.prɪˈhɛnd/",
+    "pos": "v. 動詞",
+    "zh": "理解",
+    "img": "🧠",
+    "exEn": "It is hard to comprehend.",
+    "exZh": "這很難理解。"
+   },
+   {
+    "en": "consequently",
+    "ipa": "/ˈkɑːn.sə.kwɛnt.li/",
+    "pos": "adv. 副詞",
+    "zh": "因此",
+    "img": "➡️",
+    "exEn": "He was late; consequently, he missed the bus.",
+    "exZh": "他遲到了，因此錯過公車。"
+   },
+   {
+    "en": "controversial",
+    "ipa": "/ˌkɑːn.trəˈvɜːr.ʃəl/",
+    "pos": "adj. 形容詞",
+    "zh": "有爭議的",
+    "img": "⚔️",
+    "exEn": "It is a controversial topic.",
+    "exZh": "這是個有爭議的話題。"
+   },
+   {
+    "en": "distinguish",
+    "ipa": "/dɪˈstɪŋ.ɡwɪʃ/",
+    "pos": "v. 動詞",
+    "zh": "區分",
+    "img": "🔍",
+    "exEn": "Can you distinguish the two?",
+    "exZh": "你能區分這兩個嗎？"
+   },
+   {
+    "en": "emphasis",
+    "ipa": "/ˈɛm.fə.sɪs/",
+    "pos": "n. 名詞",
+    "zh": "強調；重點",
+    "img": "❕",
+    "exEn": "The emphasis is on quality.",
+    "exZh": "重點在於品質。"
+   },
+   {
+    "en": "fundamental",
+    "ipa": "/ˌfʌn.dəˈmɛn.təl/",
+    "pos": "adj. 形容詞",
+    "zh": "基本的",
+    "img": "🧱",
+    "exEn": "Reading is a fundamental skill.",
+    "exZh": "閱讀是基本技能。"
+   },
+   {
+    "en": "inevitable",
+    "ipa": "/ɪnˈɛv.ɪ.tə.bəl/",
+    "pos": "adj. 形容詞",
+    "zh": "不可避免的",
+    "img": "🌊",
+    "exEn": "Change is inevitable.",
+    "exZh": "改變是不可避免的。"
+   },
+   {
+    "en": "innovative",
+    "ipa": "/ˈɪn.ə.veɪ.tɪv/",
+    "pos": "adj. 形容詞",
+    "zh": "創新的",
+    "img": "💡",
+    "exEn": "They have an innovative design.",
+    "exZh": "他們有創新的設計。"
+   },
+   {
+    "en": "integrate",
+    "ipa": "/ˈɪn.tɪ.ɡreɪt/",
+    "pos": "v. 動詞",
+    "zh": "整合",
+    "img": "🧩",
+    "exEn": "We integrate new ideas into the plan.",
+    "exZh": "我們把新想法整合進計畫。"
+   },
+   {
+    "en": "legitimate",
+    "ipa": "/lɪˈdʒɪt.ə.mət/",
+    "pos": "adj. 形容詞",
+    "zh": "合法的；正當的",
+    "img": "⚖️",
+    "exEn": "He has a legitimate reason.",
+    "exZh": "他有正當的理由。"
+   },
+   {
+    "en": "phenomenon",
+    "ipa": "/fəˈnɑː.mə.nɑːn/",
+    "pos": "n. 名詞",
+    "zh": "現象",
+    "img": "🌌",
+    "exEn": "It is a natural phenomenon.",
+    "exZh": "這是自然現象。"
+   },
+   {
+    "en": "preliminary",
+    "ipa": "/prɪˈlɪm.ə.nɛr.i/",
+    "pos": "adj. 形容詞",
+    "zh": "初步的",
+    "img": "📝",
+    "exEn": "These are preliminary results.",
+    "exZh": "這些是初步結果。"
+   },
+   {
+    "en": "presumably",
+    "ipa": "/prɪˈzuː.mə.bli/",
+    "pos": "adv. 副詞",
+    "zh": "大概；想必",
+    "img": "🤔",
+    "exEn": "Presumably, he is still at home.",
+    "exZh": "想必他還在家。"
+   },
+   {
+    "en": "significance",
+    "ipa": "/sɪɡˈnɪf.ɪ.kəns/",
+    "pos": "n. 名詞",
+    "zh": "重要性；意義",
+    "img": "⭐",
+    "exEn": "Do you know the significance of this day?",
+    "exZh": "你知道這一天的意義嗎？"
+   },
+   {
+    "en": "simultaneously",
+    "ipa": "/ˌsaɪ.məlˈteɪ.ni.əs.li/",
+    "pos": "adv. 副詞",
+    "zh": "同時地",
+    "img": "⏱️",
+    "exEn": "They spoke simultaneously.",
+    "exZh": "他們同時開口。"
+   },
+   {
+    "en": "sophisticated",
+    "ipa": "/səˈfɪs.tɪ.keɪ.tɪd/",
+    "pos": "adj. 形容詞",
+    "zh": "精密的；世故的",
+    "img": "🛰️",
+    "exEn": "It is a sophisticated machine.",
+    "exZh": "這是台精密的機器。"
+   },
+   {
+    "en": "subsequent",
+    "ipa": "/ˈsʌb.sɪ.kwənt/",
+    "pos": "adj. 形容詞",
+    "zh": "隨後的",
+    "img": "⏭️",
+    "exEn": "The subsequent days were busy.",
+    "exZh": "接下來幾天很忙。"
+   },
+   {
+    "en": "sustainable",
+    "ipa": "/səˈsteɪ.nə.bəl/",
+    "pos": "adj. 形容詞",
+    "zh": "可持續的",
+    "img": "♻️",
+    "exEn": "We need sustainable energy.",
+    "exZh": "我們需要可持續的能源。"
+   },
+   {
+    "en": "thorough",
+    "ipa": "/ˈθɜːr.oʊ/",
+    "pos": "adj. 形容詞",
+    "zh": "徹底的",
+    "img": "🧹",
+    "exEn": "She did a thorough check.",
+    "exZh": "她做了徹底的檢查。"
+   }
+  ]
+ }
+}
